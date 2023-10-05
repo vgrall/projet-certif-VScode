@@ -12,7 +12,6 @@
 
 -- -----------------------------------------------------
 
-
 DROP SCHEMA IF EXISTS `mydb` ;
 
 -- -----------------------------------------------------
@@ -25,7 +24,6 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 
 USE `mydb` ;
 
-
 -- -----------------------------------------------------
 
 -- Table `mydb`.`RESTAURANTS`
@@ -37,10 +35,12 @@ DROP TABLE IF EXISTS `mydb`.`RESTAURANTS` ;
 CREATE TABLE
     IF NOT EXISTS `mydb`.`RESTAURANTS` (
         `ID` VARCHAR(15) NOT NULL,
-        `NAME` VARCHAR(255) NULL,
-        `ADRESSE` VARCHAR(255) NULL,
-        `CP` INT NULL,
-        `VILLE` VARCHAR(255) NULL,
+        `NAME` VARCHAR(255) NOT NULL,
+        `ADRESSE` VARCHAR(255) NOT NULL,
+        `CP` INT NOT NULL,
+        `VILLE` VARCHAR(255) NOT NULL,
+        `IMAGE` VARCHAR(255) NOT NULL,
+        `PHONE` VARCHAR(255) NOT NULL,
         PRIMARY KEY (`ID`)
     ) ENGINE = InnoDB;
 
@@ -67,12 +67,13 @@ CREATE TABLE
 
 DROP TABLE IF EXISTS `mydb`.`CONCOURS` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`CONCOURS` (
-  `ID` VARCHAR(36) NOT NULL,
-  `MAIL` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE INDEX `MAIL_UNIQUE` (`MAIL` ASC) VISIBLE)
-ENGINE = InnoDB;
+CREATE TABLE
+    IF NOT EXISTS `mydb`.`CONCOURS` (
+        `ID` VARCHAR(36) NOT NULL,
+        `MAIL` VARCHAR(255) NULL DEFAULT NULL,
+        PRIMARY KEY (`ID`),
+        UNIQUE INDEX `MAIL_UNIQUE` (`MAIL` ASC) VISIBLE
+    ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE
     IF NOT EXISTS `mydb`.`MENU_ITEMS` (
         `ID` INT NOT NULL AUTO_INCREMENT,
         `NAME` VARCHAR(255) NULL,
-        `PRICE` DECIMAL(4,2) NULL,
+        `PRICE` DECIMAL(4, 2) NULL,
         `CATEGORIES_ID` VARCHAR(3) NOT NULL,
         PRIMARY KEY (`ID`, `CATEGORIES_ID`),
         INDEX `fk_MENU_ITEMS_CATEGORIES1_idx` (`CATEGORIES_ID` ASC) VISIBLE,
@@ -115,7 +116,6 @@ CREATE TABLE
         CONSTRAINT `fk_MENU_ITEMS_has_RESTAURANTS_RESTAURANTS1` FOREIGN KEY (`RESTAURANTS_ID`) REFERENCES `mydb`.`RESTAURANTS` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 
 -- Table `mydb`.`AVIS_CLIENTS`
@@ -139,7 +139,6 @@ CREATE TABLE
         INDEX `fk_AVIS_RESTAURANTS_idx` (`RESTAURANTS_ID` ASC) VISIBLE,
         CONSTRAINT `fk_AVIS_RESTAURANTS` FOREIGN KEY (`RESTAURANTS_ID`) REFERENCES `mydb`.`RESTAURANTS` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 
@@ -177,7 +176,10 @@ USE `mydb`;
 
 INSERT INTO
     `mydb`.`CONCOURS` (`ID`, `MAIL`)
-VALUES ('bc0a6b9c-19b8-4619-8bcb-7d31266f81dd', 'barackLaclasse@gmail.com');
+VALUES (
+        'bc0a6b9c-19b8-4619-8bcb-7d31266f81dd',
+        'barackLaclasse@gmail.com'
+    );
 
 INSERT INTO
     `mydb`.`CONCOURS` (`ID`, `MAIL`)
@@ -187,7 +189,6 @@ VALUES (
     );
 
 COMMIT;
-
 
 -- -----------------------------------------------------
 
@@ -205,15 +206,20 @@ INSERT INTO
         `NAME`,
         `ADRESSE`,
         `CP`,
-        `VILLE`
+        `VILLE`,
+        `IMAGE`,
+        `PHONE`
     )
 VALUES (
         'CROZON',
         'Ker Rozzen (Crozon)',
         'Plage de Postolonnec',
         29160,
-        'CROZON'
-    );
+        'CROZON',
+        '/images/crozon.png',
+        '02 98 27 10 28'
+
+);
 
 INSERT INTO
     `mydb`.`RESTAURANTS` (
@@ -221,15 +227,20 @@ INSERT INTO
         `NAME`,
         `ADRESSE`,
         `CP`,
-        `VILLE`
+        `VILLE`,
+        `IMAGE`,
+        `PHONE`
     )
 VALUES (
         'LARMOR',
         'Ker Rozzen (Larmor)',
         '11 place Notre ',
         56260,
-        'LARMOR-PLAGE'
-    );
+        'LARMOR-PLAGE',
+        '/images/larmor.png',
+        '02 97 84 26 26'
+
+);
 
 INSERT INTO
     `mydb`.`RESTAURANTS` (
@@ -237,14 +248,18 @@ INSERT INTO
         `NAME`,
         `ADRESSE`,
         `CP`,
-        `VILLE`
+        `VILLE`,
+        `IMAGE`,
+        `PHONE`
     )
 VALUES (
         'PLENEUF',
         'Ker Rozzen (Dahouet)',
         '26 quai des Terre-Neuvas - Dahouët',
         22370,
-        'PLENEUF VAL-ANDRÉ'
+        'PLENEUF VAL-ANDRÉ',
+        '/images/dahouet.png',
+        '02 96 63 13 00'
     );
 
 INSERT INTO
@@ -253,18 +268,21 @@ INSERT INTO
         `NAME`,
         `ADRESSE`,
         `CP`,
-        `VILLE`
+        `VILLE`,
+        `IMAGE`,
+        `PHONE`
     )
 VALUES (
         'STCAST',
         'Ker Rozzen (St Cast)',
         '35 avenue de Pen Guen',
         22380,
-        'SAINT-CAST-LE-GUILDO'
+        'SAINT-CAST-LE-GUILDO',
+        '/images/stcast.png',
+        '02 96 41 80 18'
     );
 
 COMMIT;
-
 
 -- -----------------------------------------------------
 
@@ -409,8 +427,6 @@ VALUES (
     );
 
 COMMIT;
-
-
 
 -- -----------------------------------------------------
 
@@ -778,7 +794,7 @@ VALUES (
         'Adouille, salade, oeuf, curé nantais',
         12.10,
         'GLT'
-    );    
+    );
 
 COMMIT;
 
