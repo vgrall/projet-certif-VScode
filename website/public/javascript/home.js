@@ -66,7 +66,7 @@ window.addEventListener("scroll", () => {
   let scrollValue =
     (window.innerHeight + window.scrollY) / document.body.offsetHeight;
   console.log(scrollValue);
-  if (scrollValue > 0.5) {
+  if (scrollValue > 0.25) {
     containerCarte.style.opacity = 1; //rend visible l'élément
     containerCarte.style.transform = "none"; //
   }

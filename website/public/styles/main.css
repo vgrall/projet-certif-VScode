@@ -283,6 +283,13 @@ FOOTER
 /* *****************************************************************
 A-PROPOS
 ***************************************************************** */
+#apropos {
+    color: #3B3939;
+    font-size: clamp(25px, 5vw, 55px);
+    text-align: center;
+
+}
+
 .container-about {
     display: block;
 
@@ -391,14 +398,19 @@ POP-UP CONCOURS
 ***************************************************************** */
 #concours {
     text-align: center;
+
+}
+
+form#concoursForm {
+    margin-bottom: 30px;
 }
 
 .pop-up {
     position: fixed;
-    right: 2rem;
-    bottom: 2rem;
+    right: 0.5rem;
+    bottom: 3rem;
     height: 120px;
-    width: 90%;
+    width: 100%;
     text-align: center;
     background: linear-gradient(90deg, #F1BB46, rgb(252, 225, 166));
     border-radius: 10% 10% 10% 10% / 20% 20% 20% 20%;
@@ -409,17 +421,18 @@ POP-UP CONCOURS
 }
 
 .pop-up-container {
-    width: 100%;
+    width: 80%;
     position: absolute;
     top: 45%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -45%);
 }
 
 .pop-up-container h3 {
+    padding-top: 2rem;
     color: #3B3939;
-    margin: 1rem;
-    font-size: 1.5rem;
+    margin: 1rem 0.3rem;
+    font-size: 1rem;
 }
 
 .button-container input {
@@ -458,6 +471,10 @@ POP-UP CONCOURS
     transform: scale(0.96);
 }
 
+i#closeBtn.far.fa-times-circle {
+    margin-top: 20px;
+}
+
 .fa-times-circle {
     position: absolute;
     left: 2rem;
@@ -483,26 +500,36 @@ POP-UP CONCOURS
 NOS VALEURS
 ***************************************************************** */
 .container-valeurs {
-    display: flex;
-    flex-direction: column;
+    margin: 0 10px;
     align-items: center;
     text-align: center;
-    margin: 0 4rem;
+}
+
+.content-valeurs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    text-align: center;
+
 }
 
 #valeurs {
-    text-align: center;
     color: #3B3939;
+    font-size: clamp(25px, 5vw, 55px);
+    text-align: center;
+
 }
 
 #contentValues {
     text-align: left;
+    font-size: clamp(16px, 1.5vw, 25px);
 
 }
 
 .nosValeurs {
     background-color: #F1BB46;
     border-radius: 10%;
+    min-width: 271px;
 }
 
 .fa-solid {
@@ -512,13 +539,6 @@ NOS VALEURS
     border-radius: 50% / 100%;
 }
 
-.valeursP {
-    font-size: 1.4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
-    padding-left: 1rem;
-
-}
 
 /* **************************************************************
 PAGE CARTE 
@@ -618,6 +638,7 @@ ECRAN de 600 @ 768px
 @media screen and (min-width: 600px) and (max-width: 768px) {
 
 
+
     #kerrozenn {
         padding-top: 2rem;
         font-size: 3.5em;
@@ -671,6 +692,26 @@ PAGE RESTAURANT
     }
 
 
+    /* *****************************************************************
+POP-UP CONCOURS
+***************************************************************** */
+    form#concoursForm {
+        margin-bottom: 0px;
+    }
+
+    .pop-up {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+    }
+
+    .pop-up-container {
+        width: 100%;
+        top: 45%;
+        left: 50%;
+    }
+
+
 
 
 }
@@ -679,6 +720,7 @@ PAGE RESTAURANT
 ECRAN de 769 @ 1024px
 ***************************************************************** */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+
 
     .p-carte,
     .p-carte-cidre {
@@ -700,8 +742,7 @@ ECRAN de 769 @ 1024px
         grid-auto-columns: 1fr;
         gap: 0em 2em;
         grid-auto-flow: row;
-        grid-template-areas:
-            "au-menu crepe galette cidre";
+        grid-template-areas: "au-menu crepe galette cidre";
     }
 
     .au-menu {
@@ -747,9 +788,14 @@ ECRAN de 769 @ 1024px
         font-size: 3rem;
     }
 
+
+
+
+
+
     /* **************************************************************
-PAGE RESTAURANT 
-************************************************************** */
+    PAGE RESTAURANT 
+    ************************************************************** */
     /* Styles pour la grille de restaurants */
     .restaurant-grid {
         display: flex;
@@ -780,14 +826,78 @@ PAGE RESTAURANT
         margin: 0 auto;
     }
 
+    /* *****************************************************************
+    NOS VALEURS
+    ***************************************************************** */
+
+    .container-valeurs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+
+    .nosValeurs {
+        margin-top: 15px;
+    }
+
+    /* *****************************************************************
+POP-UP CONCOURS
+***************************************************************** */
+    form#concoursForm {
+        margin-bottom: 0px;
+    }
+
+    .pop-up {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+    }
+
+    .pop-up-container {
+        width: 100%;
+        top: 45%;
+        left: 50%;
+    }
+
+
 
 
 }
+
 
 /* *****************************************************************
 ECRAN de 1024 ET +
 ***************************************************************** */
 @media screen and (min-width: 1024px) {
+
+    /* *****************************************************************
+    NOS VALEURS
+    ***************************************************************** */
+
+    .container-valeurs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .content-valeurs {
+        margin-right: 20px;
+
+    }
+
+    #valeurs {
+        text-align: left;
+    }
+
+    .nosValeurs {
+        margin-top: 15px;
+        margin-left: 20px
+    }
 
     .sidenav {
         padding-top: 60px;
@@ -808,7 +918,6 @@ ECRAN de 1024 ET +
         /* Placer la photo à droite */
         flex: 1;
         /* Prend 1/3 de l'espace disponible */
-        max-width: 100%;
         margin-top: 2%;
         padding-right: 2%;
         padding-left: 2%;
@@ -853,8 +962,7 @@ ECRAN de 1024 ET +
         grid-auto-columns: 1fr;
         gap: 0 3rem;
         grid-auto-flow: row;
-        grid-template-areas:
-            "au-menu crepe galette cidre";
+        grid-template-areas: "au-menu crepe galette cidre";
     }
 
     .au-menu {
@@ -909,74 +1017,53 @@ PAGE RESTAURANT
         display: block;
         margin: 0 auto;
     }
+
+    /* *****************************************************************
+POP-UP CONCOURS
+***************************************************************** */
+    .pop-up {
+
+        right: 5rem;
+        bottom: -0rem;
+        height: 110px;
+        width: 40%;
+    }
+
+    .pop-up-container {
+        width: 100%;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -45%);
+    }
 }
+
+/* *****************************************************************
+ECRAN A PARTIR DE 1200px
+***************************************************************** */
 
 /* *****************************************************************
 POP-UP CONCOURS
 ***************************************************************** */
+@media screen and (min-width: 1200px) {
+    .pop-up {
 
-.pop-up {
+        right: 5rem;
+        bottom: -0rem;
+        height: 110px;
+        width: 30%;
+    }
 
-    right: 1rem;
-    bottom: -0rem;
-    height: 110px;
-    width: 520px;
-}
-
-.fa-times-circle {
-
-    left: 4rem;
-    top: 0.7rem;
-}
-
-
-
-
-/* *****************************************************************
-NOS VALEURS
-***************************************************************** */
-.container-valeurs {
-
-    flex-direction: row;
-    margin: 1rem 10rem;
-}
+    .pop-up-container {
+        width: 100%;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -45%);
+    }
 
 
-#contentValues {
-    padding-right: 2.8rem;
-}
-
-.nosValeurs {
-    border-radius: 5%;
-    margin-top: 2rem;
-    padding-top: 2rem;
-}
-
-.valeursP {
-    font-size: 1.8rem;
-    padding-left: 3rem;
-    margin-right: 3rem;
-
-}
-
-.crepeSort {
-
-    margin-left: 200px;
-    font-size: 3rem;
-}
-
-.price {
-
-    margin-right: 200px;
-    font-size: 3rem;
-}
-
-#valeurs {
-    text-align: left;
 
 
 }
-
 
 
 
@@ -998,6 +1085,5 @@ ECRAN de 1665px ET +
         margin-right: 500px;
         font-size: 3.5rem;
     }
-
 
 }
