@@ -1,5 +1,7 @@
 <%- include('includes/header') -%>
 
+<script src="../javascript/restaurant.js" defer></script>
+
 <section class="hero">
     <div class="hero-content">
         <h1 aria-label="KER ROZENN"></h1>
@@ -15,19 +17,36 @@
 </header>
 
 <main class="restaurants-panel">
-<h2>Liste des Restaurants</h2>
-<div class="restaurant-grid">
-    <% for (let i = 0; i < restaurants.length; i++) { %>
-      <div class="row">
-        <div class="restaurant">
-          <img id="restaurant_<%= restaurants[i].ID %>" src="<%= restaurants[i].IMAGE %>" alt="<%= restaurants[i].NAME %>">
-          <p><%= restaurants[i].NAME %></p>
+    <h2>Liste des Restaurants</h2>
+    <div class="restaurant-grid">
+      <% for (let i = 0; i < restaurants.length; i++) { %>
+        <div class="row">
+          <div class="restaurant">
+            <div class="restaurant-image">
+              <img
+                id="restaurant_<%= restaurants[i].ID %>"
+                src="<%= restaurants[i].IMAGE %>"
+                alt="<%= restaurants[i].NAME %>"
+              >
+              <p><%= restaurants[i].NAME %></p>
+              
+              <div class="restaurant-info">
+                <div class="info-content">
+                  <p><%= restaurants[i].NAME %></p>
+                  <p><%= restaurants[i].ADRESSE %></p>
+                  <span><%= restaurants[i].CP %></span>
+                  <span><%= restaurants[i].VILLE %></span>
+                    <p><%= restaurants[i].PHONE %></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    <% } %>
-</div>
-
-</main>
+      <% } %>
+    </div>
+  </main>
+  
+  
 
 <!--  
     <%- JSON.stringify(restaurants, null, 2) %>

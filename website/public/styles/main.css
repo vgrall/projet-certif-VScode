@@ -551,6 +551,41 @@ PAGE RESTAURANT
     margin: 0 4rem;
 }
 
+/* **************************************************************
+ANIMATION INFO RESTAURANT SUR PHOTO RESTAURANT 
+************************************************************** */
+.info-content {
+    font-size: clamp(13px, 1vw, 20px);
+}
+
+.restaurant-image {
+    position: relative;
+    display: inline-block;
+}
+
+.restaurant-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+    display: none;
+    width: 90%;
+}
+
+.info-content {
+    text-align: center;
+}
+
+.restaurant-image:hover .restaurant-info {
+    display: block;
+}
+
+
 
 
 
