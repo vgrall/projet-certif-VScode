@@ -288,8 +288,13 @@ A-PROPOS
 
 }
 
+.content p {
+    font-size: clamp(16px, 1.5vw, 25px);
+}
+
 .content {
-    margin: 0 4rem 0 4rem;
+    margin: 0 4rem;
+    text-align: justify;
 
 }
 
