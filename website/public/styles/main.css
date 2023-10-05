@@ -533,6 +533,26 @@ li {
     font-size: 1.5rem;
 }
 
+/* **************************************************************
+PAGE RESTAURANT 
+************************************************************** */
+
+
+.restaurant {
+
+    text-align: center;
+}
+
+.restaurants-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 4rem;
+}
+
+
+
 
 /* *****************************************************************
 ECRAN de 600 @ 768px
@@ -556,6 +576,43 @@ ECRAN de 600 @ 768px
         margin-right: 130px;
         font-size: 2.2rem;
     }
+
+
+
+    /* **************************************************************
+PAGE RESTAURANT 
+************************************************************** */
+    /* Styles pour la grille de restaurants */
+    .restaurant-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        /* Espacement entre les éléments */
+        max-width: 800px;
+        /* Largeur maximale de la grille */
+        margin: 0 auto;
+        /* Centrer la grille horizontalement */
+    }
+
+    .row {
+        flex: 0 1 calc(50% - 10px);
+        /* 2 éléments par ligne, avec un espacement de 10px entre eux */
+        margin-bottom: 20px;
+        /* Espacement entre les lignes */
+    }
+
+    .restaurant {
+        text-align: center;
+    }
+
+    .restaurant img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+
 
 
 }
@@ -632,6 +689,38 @@ ECRAN de 769 @ 1024px
         font-size: 3rem;
     }
 
+    /* **************************************************************
+PAGE RESTAURANT 
+************************************************************** */
+    /* Styles pour la grille de restaurants */
+    .restaurant-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        /* Espacement entre les éléments */
+        max-width: 800px;
+        /* Largeur maximale de la grille */
+        margin: 0 auto;
+        /* Centrer la grille horizontalement */
+    }
+
+    .row {
+        flex: 0 1 calc(50% - 10px);
+        /* 2 éléments par ligne, avec un espacement de 10px entre eux */
+        margin-bottom: 20px;
+        /* Espacement entre les lignes */
+    }
+
+    .restaurant {
+        text-align: center;
+    }
+
+    .restaurant img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 
 
 
@@ -730,89 +819,127 @@ ECRAN de 1024 ET +
 
     }
 
+    /* **************************************************************
+PAGE RESTAURANT 
+************************************************************** */
+    /* Styles pour la grille de restaurants */
+    .restaurant-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        /* Espacement entre les éléments */
+        max-width: 1000px;
+        /* Largeur maximale de la grille */
+        margin: 0 auto;
+        /* Centrer la grille horizontalement */
+    }
 
-    /* *****************************************************************
+    .row {
+        flex: 0 1 calc(50% - 5px);
+        /* 2 éléments par ligne, avec un espacement de 10px entre eux */
+        margin-bottom: 20px;
+        /* Espacement entre les lignes */
+    }
+
+    .restaurant {
+        text-align: center;
+    }
+
+    .restaurant img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* *****************************************************************
 POP-UP CONCOURS
 ***************************************************************** */
 
-    .pop-up {
+.pop-up {
 
-        right: 1rem;
-        bottom: -0rem;
-        height: 110px;
-        width: 520px;
-    }
+    right: 1rem;
+    bottom: -0rem;
+    height: 110px;
+    width: 520px;
+}
 
-    .fa-times-circle {
+.fa-times-circle {
 
-        left: 4rem;
-        top: 0.7rem;
-    }
-
-
+    left: 4rem;
+    top: 0.7rem;
+}
 
 
-    /* *****************************************************************
+
+
+/* *****************************************************************
 NOS VALEURS
 ***************************************************************** */
-    .container-valeurs {
+.container-valeurs {
 
-        flex-direction: row;
-        margin: 1rem 10rem;
-    }
+    flex-direction: row;
+    margin: 1rem 10rem;
+}
 
 
-    #contentValues {
-        padding-right: 2.8rem;
-    }
+#contentValues {
+    padding-right: 2.8rem;
+}
 
-    .nosValeurs {
-        border-radius: 5%;
-        margin-top: 2rem;
-        padding-top: 2rem;
-    }
+.nosValeurs {
+    border-radius: 5%;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
 
-    .valeursP {
-        font-size: 1.8rem;
-        padding-left: 3rem;
-        margin-right: 3rem;
+.valeursP {
+    font-size: 1.8rem;
+    padding-left: 3rem;
+    margin-right: 3rem;
 
-    }
+}
+
+.crepeSort {
+
+    margin-left: 200px;
+    font-size: 3rem;
+}
+
+.price {
+
+    margin-right: 200px;
+    font-size: 3rem;
+}
+
+#valeurs {
+    text-align: left;
+
+
+}
+
+
+
+
+/* *****************************************************************
+ECRAN de 1665px ET +
+***************************************************************** */
+@media screen and (min-width: 1665px) {
+
+
 
     .crepeSort {
 
-        margin-left: 200px;
-        font-size: 3rem;
+        margin-left: 500px;
+        font-size: 3.5rem;
     }
 
     .price {
 
-        margin-right: 200px;
-        font-size: 3rem;
+        margin-right: 500px;
+        font-size: 3.5rem;
     }
 
-    #valeurs {
-        text-align: left;
 
-
-    }
-
-    /* *****************************************************************
-ECRAN de 1665px ET +
-***************************************************************** */
-    @media screen and (min-width: 1665px) {
-
-
-
-        .crepeSort {
-
-            margin-left: 500px;
-            font-size: 3.5rem;
-        }
-
-        .price {
-
-            margin-right: 500px;
-            font-size: 3.5rem;
-        }
-    }
+}

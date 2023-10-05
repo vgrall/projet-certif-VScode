@@ -1,0 +1,37 @@
+<%- include('includes/header') -%>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 aria-label="KER ROZENN"></h1>
+        <a href="/" class="hero-push-link">
+            <img id="triskell" src="../assets/triskell.png" alt="logo triskell" />
+        </a>
+        <h2 id="punchline" class="subtitle">TA DOSE DE BRETAGNE QUODITIENNE</h2>
+        <img id="bilic" src="../assets/bilic.png" alt="bilic">
+    </div>
+
+</section>
+
+</header>
+
+<main class="restaurants-panel">
+<h2>Liste des Restaurants</h2>
+<div class="restaurant-grid">
+    <% for (let i = 0; i < restaurants.length; i++) { %>
+      <div class="row">
+        <div class="restaurant">
+          <img id="restaurant_<%= restaurants[i].ID %>" src="<%= restaurants[i].IMAGE %>" alt="<%= restaurants[i].NAME %>">
+          <p><%= restaurants[i].NAME %></p>
+        </div>
+      </div>
+    <% } %>
+</div>
+
+</main>
+
+<!--  
+    <%- JSON.stringify(restaurants, null, 2) %>
+-->
+
+
+<%- include('includes/footer') -%>
