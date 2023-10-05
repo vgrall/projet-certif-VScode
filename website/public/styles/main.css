@@ -82,35 +82,50 @@ HEADER
 .hero {
     background-color: #3B3939;
     text-align: center;
+
 }
 
 .hero-content {
     color: #F1BB46;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#titleRozenn {
+    font-size: clamp(30px, 1.5vw, 80px);
+    height: clamp(10px, 1.5vw, 50px);
+    letter-spacing: clamp(0.3px, 0.5vw, 5px);
+
+
+
 }
 
 #triskell {
-    width: 15%;
-    margin: 1rem 0;
-    padding-top: 3%;
+    max-width: 100%;
+    width: clamp(50px, 3.5vw, 150px);
+    padding-top: 3px;
 }
 
-#kerrozenn {
-    padding-top: 2rem;
-    font-size: 2.5em;
-}
 
 #punchline {
-    font-size: 2em;
-    padding-bottom: 2rem;
+    font-size: clamp(23px, 1vw, 70px);
+    margin-top: 0.5rem;
 
 }
 
-#bilic {
-    padding: 0 2rem;
-}
+
 
 
 /* Sidenav menu */
+
+#mySidenav.sidenav.active {
+    height: clamp(400px, 40vw, 600px);
+}
+
 .sidenav {
     height: 40%;
     width: 250px;
@@ -369,6 +384,9 @@ AU MENU
 /* *****************************************************************
 POP-UP CONCOURS
 ***************************************************************** */
+#concours {
+    text-align: center;
+}
 
 .pop-up {
     position: fixed;
