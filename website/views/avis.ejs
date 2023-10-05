@@ -1,0 +1,118 @@
+<%- include('includes/header') -%>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 aria-label="KER ROZENN"></h1>
+        <a href="/" class="hero-push-link">
+            <img id="triskell" src="../assets/triskell.png" alt="logo triskell" />
+        </a>
+        <h2 id="punchline" class="subtitle">TA DOSE DE BRETAGNE QUODITIENNE</h2>
+
+    </div>
+
+</section>
+</header>
+
+<script src="../javascript/avis.js" defer></script>
+
+<main>
+    <div id="formEtAdvice">
+        <section class="formAdvice">
+
+            <div class="container">
+                <h2>Votre Avis nous intéresse</h2>
+                <p class="introForm">Merci de prendre quelques instants pour nous donner votre avis sur votre expérience
+                    au
+                    restaurant.
+                </p>
+                <form method="POST" id="satisfactionForm">
+                    <div class="form-group">
+                        <label for="photo">Lien de votre plus beau selfie:</label>
+                        <input type="text" id="photo" name="photo" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">Prénom:</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nom:</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Votre satisfaction globale:</label>
+                        <input type="radio" id="satisfaction5" name="satisfaction" value="5" required>
+                        <label class="labelnumero" for="satisfaction5">5</label>
+
+                        <input type="radio" id="satisfaction4" name="satisfaction" value="4">
+                        <label class="labelnumero" for="satisfaction4">4</label>
+
+                        <input type="radio" id="satisfaction3" name="satisfaction" value="3">
+                        <label class="labelnumero" for="satisfaction3">3</label>
+
+                        <input type="radio" id="satisfaction2" name="satisfaction" value="2">
+                        <label class="labelnumero" for="satisfaction2">2</label>
+
+                        <input type="radio" id="satisfaction1" name="satisfaction" value="1">
+                        <label class="labelnumero" for="satisfaction1">1</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant">Restaurant:</label>
+                        <select name="restaurants_id" id="restaurants_id">
+                            <% for(let i = 0; i < restaurants.length; i++) { %>
+                            <option value="<%= restaurants[i].id %>"><%= restaurants[i].name %></option>
+                            <% } %>
+                        </select>
+                    </div>                    
+                    <div class="form-group">
+                        <label for="comment">Commentaires:</label>
+                        <textarea id="comment" minlength="60" name="comment" required></textarea>
+                    </div>
+                    <div class="btnFormContainer">
+                        <button id="formBtn" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+       
+        <section class="advises">
+            <h2 class="CustomerAdvice">Avis Clients</h2>
+            <div class="slider-container">
+                <% for(let i = 0; i < avis.length; i++) { %>
+                <button class="direction-btn left">
+                    <img src="../assets/left-chevron.svg" alt="left arrow">
+                </button>
+                <button class="direction-btn right">
+                    <img src="../assets/right-chevron.svg" alt="right arrow">
+                </button>
+
+                <div class="slide slide-<%= i %> <%= i === 0 ? 'active' : '' %>">
+                    <div class="content-avis">
+                        <img src="<%= avis[i].photo %>" alt="Photo de <%= avis[i].firstname %>">
+                        <h2><%= avis[i].firstname.toUpperCase() %></h2>
+                        <div id="commentP">
+                            <p><%= avis[i].comment %></p>
+                        </div>
+                        <div>
+                            <%= avis[i].restaurant %>
+                        </div>                            
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+
+
+
+<%- include('includes/footer') -%>

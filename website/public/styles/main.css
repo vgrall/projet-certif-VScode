@@ -1,0 +1,818 @@
+/* *****************************************************************+
+RESET
+***************************************************************** */
+
+html,
+body,
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* *****************************************************************
+GENERAL
+***************************************************************** */
+
+body {
+    font-family: 'Lilita One', cursive;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    color: #3B3939;
+}
+
+h1 {
+    font-size: 5rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: 4.5rem;
+    margin: 4rem 0 2rem 0;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+
+
+a:-webkit-any-link {
+    color: black;
+
+}
+
+/* *****************************************************************
+HEADER
+***************************************************************** */
+
+
+.p-menu1 {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.hero {
+    background-color: #3B3939;
+    text-align: center;
+}
+
+.hero-content {
+    color: #F1BB46;
+}
+
+#triskell {
+    width: 15%;
+    margin: 1rem 0;
+    padding-top: 3%;
+}
+
+#kerrozenn {
+    padding-top: 2rem;
+    font-size: 2.5em;
+}
+
+#punchline {
+    font-size: 2em;
+    padding-bottom: 2rem;
+
+}
+
+#bilic {
+    padding: 0 2rem;
+}
+
+
+/* Sidenav menu */
+.sidenav {
+    height: 40%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+
+    background: rgb(241, 187, 70);
+    background: linear-gradient(180deg, rgba(241, 187, 70, 1) 1%, rgba(243, 210, 138, 1) 15%, rgba(245, 227, 187, 1) 78%);
+    padding-top: 10px;
+    transition: left 0.5s ease;
+    border-radius: 1rem;
+
+}
+
+/* Sidenav menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #3B3939;
+    display: block;
+    transition: 0.3s;
+
+
+
+}
+
+.sidenav a:hover,
+.sidenav a:focus,
+.sidenav a.current {
+    color: #F1BB46;
+
+}
+
+.sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+    left: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+    position: absolute;
+    top: 0;
+    margin-left: 16rem;
+    font-size: 36px;
+    color: #3B3939;
+
+}
+
+/* Icône burger */
+.burger-icon span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+/* *****************************************************************
+FOOTER
+***************************************************************** */
+#footer {
+    margin-top: 5rem;
+    text-align: center;
+    min-width: 370px;
+}
+
+.container-finDePage {
+    background-color: #3B3939;
+    margin-top: 3em;
+    color: white;
+    text-align: center;
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0em 0em;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". content-finDePage .";
+
+}
+
+
+.content-finDePage {
+    grid-area: content-finDePage;
+    text-align: center;
+}
+
+
+.titreFinDePage {
+    background-color: #F1BB46;
+    color: #3B3939;
+    border-radius: 5rem;
+}
+
+#passez {
+    color: #F1BB46;
+}
+
+#love {
+    text-align: center;
+    color: #F1BB46;
+}
+
+/* moyens de paiement */
+
+.moyenPaiement {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.container-paiement {
+    width: 80%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "cb visa mastercard";
+}
+
+.cb {
+    grid-area: cb;
+    width: 6rem;
+    padding-right: 1.3rem;
+}
+
+.visa {
+    grid-area: visa;
+    width: 6rem;
+}
+
+.mastercard {
+    grid-area: mastercard;
+    width: 6rem;
+}
+
+
+
+/* *****************************************************************
+A-PROPOS
+***************************************************************** */
+.container-about {
+    display: block;
+
+}
+
+.content {
+    margin: 0 4rem 0 4rem;
+
+}
+
+#rozenn {
+    border-radius: 2rem;
+    padding: 1rem;
+
+}
+
+
+
+/* *****************************************************************
+AU MENU
+***************************************************************** */
+
+.container-carte {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #3B3939;
+    transition: 0.9s;
+    transform: translateX(-100%);
+}
+
+#carte {
+    color: #F1BB46;
+    font-size: 4.5rem;
+
+}
+
+.au-menu {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.content-carte {
+    width: 100%;
+    max-width: 300px;
+    /* Ajustez la largeur maximale selon vos besoins */
+    margin: 0 auto;
+    /* Centrez horizontalement le contenu */
+}
+
+.crepe,
+.galette,
+.cidre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    /* Ajoutez de l'espace entre chaque élément */
+    position: relative;
+}
+
+.cidre {
+    margin-bottom: 50px;
+}
+
+.p-carte,
+.p-carte-cidre {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    bottom: -75px;
+    left: 0;
+    right: 0;
+    margin-bottom: 5rem;
+
+}
+
+.p-carte-cidre {
+    margin-bottom: 10rem;
+}
+
+.crepe img,
+.galette img,
+.cidre img {
+    max-width: 100%;
+}
+
+#crepe,
+#galette,
+#cidre {
+    border-radius: 10%;
+}
+
+
+/* *****************************************************************
+POP-UP CONCOURS
+***************************************************************** */
+
+.pop-up {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    height: 120px;
+    width: 90%;
+    text-align: center;
+    background: linear-gradient(90deg, #F1BB46, rgb(252, 225, 166));
+    border-radius: 10% 10% 10% 10% / 20% 20% 20% 20%;
+    box-shadow: 0 5px 10px black;
+    opacity: 0;
+    transform: translateX(45px);
+    transition: 1s ease-out;
+}
+
+.pop-up-container {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+}
+
+.pop-up-container h3 {
+    color: #3B3939;
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.button-container input {
+    border: 1px solid #333;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 1px 2px 0 black;
+    outline: none;
+    font-size: 1.2rem;
+    transition: 0.5s;
+}
+
+.button-container input:focus {
+    background: rgb(252, 225, 166);
+}
+
+.button-container button {
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: 1px solid #333;
+    outline: none;
+    cursor: pointer;
+    background: white;
+    box-shadow: 1px 2px 0 black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background: #F1BB46;
+    transform: translateX(-1px);
+}
+
+.button-container button:active {
+    transform: scale(0.96);
+}
+
+.fa-times-circle {
+    position: absolute;
+    left: 2rem;
+    top: 0.7rem;
+    font-size: 1.7rem;
+    color: white;
+    text-shadow: 2px 2px 0px #333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fa-times-circle:hover {
+    color: rgb(252, 225, 166);
+    transform: translateX(-1px);
+}
+
+.fa-times-circle:active {
+    transform: scale(1.5);
+}
+
+
+/* *****************************************************************
+NOS VALEURS
+***************************************************************** */
+.container-valeurs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 4rem;
+}
+
+#valeurs {
+    text-align: center;
+    color: #3B3939;
+}
+
+#contentValues {
+    text-align: left;
+
+}
+
+.nosValeurs {
+    background-color: #F1BB46;
+    border-radius: 10%;
+}
+
+.fa-solid {
+    background-color: #3B3939;
+    color: white;
+    width: 10%;
+    border-radius: 50% / 100%;
+}
+
+.valeursP {
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding-left: 1rem;
+
+}
+
+/* **************************************************************
+PAGE CARTE 
+************************************************************** */
+
+.carteCrepes {
+    text-align: center;
+    /* Centre le contenu de la carteCrepes horizontalement */
+}
+
+li {
+    display: flex;
+    /* Utilise Flexbox pour aligner les éléments en ligne */
+    justify-content: space-between;
+    /* Place crepeSort à gauche et price à droite */
+    align-items: center;
+    /* Centre verticalement le contenu des éléments li */
+    margin-bottom: 10px;
+    /* Ajoute un espacement entre les éléments de liste */
+}
+
+.crepeSort {
+    flex-grow: 1;
+    /* Permet à crepeSort de prendre l'espace disponible restant */
+    text-align: left;
+    /* Aligne crepeSort à gauche */
+    margin-left: 50px;
+    font-size: 1.5rem;
+}
+
+.price {
+    text-align: right;
+    /* Aligne price à droite */
+    margin-right: 50px;
+    font-size: 1.5rem;
+}
+
+
+/* *****************************************************************
+ECRAN de 600 @ 768px
+***************************************************************** */
+@media screen and (min-width: 600px) and (max-width: 768px) {
+
+
+    #kerrozenn {
+        padding-top: 2rem;
+        font-size: 3.5em;
+    }
+
+    .crepeSort {
+
+        margin-left: 130px;
+        font-size: 2.2rem;
+    }
+
+    .price {
+
+        margin-right: 130px;
+        font-size: 2.2rem;
+    }
+
+
+}
+
+/* *****************************************************************
+ECRAN de 769 @ 1024px
+***************************************************************** */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .p-carte,
+    .p-carte-cidre {
+
+        margin-bottom: 10rem;
+
+    }
+
+    .p-carte-cidre {
+        margin-bottom: 5rem;
+        margin-right: 2rem;
+    }
+
+    .content-carte {
+        max-width: 1900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-auto-columns: 1fr;
+        gap: 0em 2em;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "au-menu crepe galette cidre";
+    }
+
+    .au-menu {
+        grid-area: au-menu;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    .crepe {
+        grid-area: crepe;
+    }
+
+    .galette {
+        grid-area: galette;
+    }
+
+    .cidre {
+        grid-area: cidre;
+    }
+
+
+    .pop-up {
+
+        right: 2rem;
+        bottom: 0rem;
+        height: 110px;
+        width: 520px;
+
+
+    }
+
+    .crepeSort {
+
+        margin-left: 130px;
+        font-size: 3rem;
+    }
+
+    .price {
+
+        margin-right: 130px;
+        font-size: 3rem;
+    }
+
+
+
+
+}
+
+/* *****************************************************************
+ECRAN de 1024 ET +
+***************************************************************** */
+@media screen and (min-width: 1024px) {
+
+    .sidenav {
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        font-size: 2rem;
+    }
+
+    .container-about {
+        display: flex;
+        align-items: center;
+        /* Centrer le contenu verticalement */
+    }
+
+    .photo-about {
+        order: 2;
+        /* Placer la photo à droite */
+        flex: 1;
+        /* Prend 1/3 de l'espace disponible */
+        max-width: 100%;
+        margin-top: 2%;
+        padding-right: 2%;
+        padding-left: 2%;
+
+
+    }
+
+    .content {
+        order: 1;
+        /* Placer les paragraphes à gauche */
+        flex: 2;
+        /* Prend 2/3 de l'espace disponible */
+        margin-left: 3rem;
+        padding-right: 1%;
+        padding-left: 1%;
+        /* Ajouter de l'espace autour du contenu */
+
+    }
+
+
+
+    .p-carte,
+    .p-carte-cidre {
+
+        margin-bottom: 12rem;
+
+    }
+
+    .p-carte-cidre {
+        margin-bottom: 7.1rem;
+        margin-right: 2rem;
+        width: 100%;
+    }
+
+
+
+    .content-carte {
+        max-width: 3000px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr;
+        grid-template-rows: 1fr;
+        grid-auto-columns: 1fr;
+        gap: 0 3rem;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "au-menu crepe galette cidre";
+    }
+
+    .au-menu {
+        grid-area: au-menu;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .crepe {
+        grid-area: crepe;
+    }
+
+    .galette {
+        grid-area: galette;
+    }
+
+    .cidre {
+        grid-area: cidre;
+
+    }
+
+
+    /* *****************************************************************
+POP-UP CONCOURS
+***************************************************************** */
+
+    .pop-up {
+
+        right: 1rem;
+        bottom: -0rem;
+        height: 110px;
+        width: 520px;
+    }
+
+    .fa-times-circle {
+
+        left: 4rem;
+        top: 0.7rem;
+    }
+
+
+
+
+    /* *****************************************************************
+NOS VALEURS
+***************************************************************** */
+    .container-valeurs {
+
+        flex-direction: row;
+        margin: 1rem 10rem;
+    }
+
+
+    #contentValues {
+        padding-right: 2.8rem;
+    }
+
+    .nosValeurs {
+        border-radius: 5%;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    .valeursP {
+        font-size: 1.8rem;
+        padding-left: 3rem;
+        margin-right: 3rem;
+
+    }
+
+    .crepeSort {
+
+        margin-left: 200px;
+        font-size: 3rem;
+    }
+
+    .price {
+
+        margin-right: 200px;
+        font-size: 3rem;
+    }
+
+    #valeurs {
+        text-align: left;
+
+
+    }
+
+    /* *****************************************************************
+ECRAN de 1665px ET +
+***************************************************************** */
+    @media screen and (min-width: 1665px) {
+
+
+
+        .crepeSort {
+
+            margin-left: 500px;
+            font-size: 3.5rem;
+        }
+
+        .price {
+
+            margin-right: 500px;
+            font-size: 3.5rem;
+        }
+    }

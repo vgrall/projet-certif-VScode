@@ -1,0 +1,144 @@
+<%- include('includes/header') -%>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 aria-label="KER ROZENN"></h1>
+        <a href="/" class="hero-push-link">
+            <img id="triskell" src="../assets/triskell.png" alt="logo triskell" />
+        </a>
+        <h2 id="punchline" class="subtitle">TA DOSE DE BRETAGNE QUODITIENNE</h2>
+        <img id="bilic" src="../assets/bilic.png" alt="bilic">
+    </div>
+
+</section>
+
+
+
+
+</header>
+
+<main>
+    <section class="container-about">
+        <div class="content">
+            <h2 id="apropos">À Propos de Rozenn</h2>
+
+            <p>C’est en 1999 que Rozenn Goulmig ouvre pour la première fois les portes de sa crêperie
+                à l'âge de 19 ans.</p>
+
+            <p>Son rêve se réalise enfin !</p>
+
+            <p>Rozenn a commencé son apprentissage de crêpière, dans la maison familiale de Dahouët, auprès de
+                sa
+                grand-mère (dont elle porte le même patronyme) dès l'âge de 6ans.</p>
+
+            <p> Elle aimait tellement tourner les galettes, que sa grand-mère lui avait installé un petit
+                endroit à
+                sa
+                hauteur auprès de sa propre bilic.</p>
+
+
+            <p>
+                Engagée dans une démarche locavore, Rozenn vous propose des crêpes, des galettes mais aussi des
+                boissons
+                typiques de la Haute Bretagne et dont la qualité ne cesse de ravir les gourmands de tous âges.
+            </p>
+        </div>
+
+        <div class="photo-about">
+
+            <img id="rozenn" src="../assets/rozenn.jpeg" alt="Rozenn" class="rozenn">
+        </div>
+
+    </section>
+
+    <section id="containerCarte" class="container-carte">
+
+        <div class="content-carte">
+            <div class="au-menu">
+                <p id="carte">Notre Carte<p>
+            </div>
+            <div class="crepe">
+                <a class="link-carte" href="/crepe">
+                    <img id="crepe" src="../assets/crepe.png" alt="crepe" class="crepe">
+                    <p class="p-carte">Ultra-fines, croustillantes sur les bords et moelleuses à cœur</p>
+                </a>
+            </div>
+
+            <div class="galette">
+                <a class="link-carte" href="/galette">
+                    <img id="galette" src="../assets/galette.png" alt="galette" class="galette">
+                    <p class="p-carte">Recette de Haute-Bretagne au sarrasin.
+                        Garniture au choix
+                    </p>
+                </a>
+            </div>
+
+            <div class="cidre">
+                <a class="link-carte" href="/boissons">
+                    <img id="cidre" src="../assets/cidre.png" alt="cidre" class="cidre">
+                    <p class="p-carte-cidre">Cidres et Chouchens locaux
+                        à déguster bien frais entre amis !
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="pop-up" id="popup">
+            <div class="pop-up-container">
+                <h3>Tentez de gagner une bouteille de cidre !<br />Tirage au sort tous les premiers lundis du mois
+                </h3>
+                <form method="POST" id="concoursForm" action="/concours">
+                <div class="button-container">
+                    <input id="emailField" name="emailField" required type="email" placeholder="please enter you email" >
+                    <button id="btnConcours">Envoyer</button>
+                </div>
+                 </form>
+                <i class="far fa-times-circle" id="closeBtn"></i>
+            </div>
+        </div>
+    </section>
+    <section class="container-valeurs">
+        <div class="content-valeurs">
+            <h2 id="valeurs">Des valeurs ancrées dans le patrimoine breton</h2>
+            <p id="contentValues">Il y a une raison pour laquelle nos habitués reviennent nous voir.
+                <br />Le bouche à oreille a été notre
+                seule publicité, mais les palais heureux sont les meilleurs ambassadeurs !
+            </p>
+        </div>
+
+        <div class="nosValeurs">
+            <div class="nosValeurs1">
+                <div>
+                    <i class="fa-solid fa-1"></i>
+                </div>
+                <h3>Ingrédients frais et de saison</h3>
+                <p class="valeursP">Notre carte suit les saisons, et nous utilisons les meilleurs produits locaux
+                    disponibles</p>
+            </div>
+
+            <div class="nosValeurs2">
+                <div>
+                    <i class="fa-solid fa-2"></i>
+                </div>
+                <h3>Nourriture réconfortante</h3>
+                <p class="valeursP">Nous avons des favoris simples au menu, mais nous les faisons bien. Nos saveurs
+                    se
+                    démarquent, c'est garanti.</p>
+            </div>
+            <div class="nosValeurs3">
+                <div>
+                    <i class="fa-solid fa-3"></i>
+                </div>
+                <h3>Un accueil chaleureux</h3>
+                <p class="valeursP">Nous sommes à la fois votre crêperie mais aussi votre guide pour découvrir les
+                    coins typiques
+                    de notre chère Bretagne.</p>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<%- include('includes/footer') -%>

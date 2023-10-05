@@ -1,0 +1,36 @@
+<%- include('includes/header') -%>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 aria-label="KER ROZENN"></h1>
+        <a href="/" class="hero-push-link">
+            <img id="triskell" src="../assets/triskell.png" alt="logo triskell" />
+        </a>
+        <h2 id="punchline" class="subtitle">TA DOSE DE BRETAGNE QUODITIENNE</h2>
+        <img id="bilic" src="../assets/boissonCarte.png" alt="crepe">
+    </div>
+
+</section>
+</header>
+
+
+<h2>Les boissons</h2>
+<main class="carteCrepes">
+
+    <ul>
+        <% boissons.forEach(function(boisson) { %>
+        <li>
+            <span class="crepeSort"><%= boisson.name %></span>
+            <span class="price"><%= boisson.price.toFixed(2) %> €</span>
+        </li>
+
+        <% }); %>
+    </ul>
+
+
+</main>
+
+
+
+<%- include('includes/footer') -%>

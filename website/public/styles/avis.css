@@ -1,0 +1,243 @@
+/* *****************************************************************
+FORM CSS
+***************************************************************** */
+
+.container {
+    background: linear-gradient(180deg, rgba(241, 187, 70, 1) 1%, rgba(243, 210, 138, 1) 15%, rgba(245, 227, 187, 1) 78%);
+    padding: clamp(20px, 12vw, 120px) 10px 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.introForm {
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+label {
+
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-right: 9px;
+    flex: 1;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.labelnumero {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="radio"],
+select,
+textarea {
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    flex: 2;
+    /* Les champs de saisie occuperont deux fois plus d'espace que les labels */
+
+
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    margin-left: 8px;
+    width: auto;
+}
+
+textarea {
+    height: 100px;
+}
+
+#formBtn {
+    background-color: #3B3939;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+
+}
+
+.btnFormContainer {
+    text-align: center;
+}
+
+#formBtn:hover {
+    background-color: #F1BB46;
+}
+
+
+/* SLIDER CSS */
+.slider-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: #3B3939;
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 4px -22px 29px -5px rgba(59, 57, 57, 0.03);
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 4px -22px 29px -5px rgba(59, 57, 57, 0.03);
+    border-radius: 5px;
+    display: grid;
+}
+
+.direction-btn {
+    position: absolute;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direction-btn:hover {
+    background: #181818;
+}
+
+.direction-btn img {
+    width: 50%;
+    pointer-events: none;
+}
+
+.direction-btn.right {
+    right: 10%;
+}
+
+.direction-btn.left {
+    left: 10%;
+}
+
+.slide {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background: #3B3939;
+    display: none;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.content-avis {
+    margin-bottom: 50px;
+    color: #dfdfdf;
+    text-align: center;
+}
+
+.commentP {
+    min-width: 500px;
+
+}
+
+.content-avis img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content-avis h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.content-avis p {
+    font-size: 20px;
+    margin-top: 10px;
+    color: gray;
+}
+
+
+/* *****************************************************************
+ECRAN de 769 @ 1024px
+***************************************************************** */
+@media screen and (min-width: 769px) and (max-width: 1024px) {}
+
+/* *****************************************************************
+ECRAN de 1024 ET +
+***************************************************************** */
+@media screen and (min-width: 1024px) {
+
+
+    .container {
+        max-width: 700px;
+    }
+
+    #satisfaction1,
+    #satisfaction2,
+    #satisfaction3,
+    #satisfaction4,
+    #satisfaction5 {
+
+        flex: 1;
+        /* Les champs de saisie occuperont deux fois plus d'espace que les labels */
+    }
+
+    input[type="radio"] {
+        margin-right: 0px;
+        margin-left: 50px;
+        width: 5px;
+    }
+
+    .labelnumero {
+        margin-left: 10px;
+
+    }
+
+    .introForm {
+        font-size: 1.6em;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+
+    #formEtAdvice {
+        display: flex;
+
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .formAdvice {
+        margin-right: 20px;
+    }
+
+
+
+}

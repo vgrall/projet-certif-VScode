@@ -1,0 +1,165 @@
+body {
+  font-family: 'Lilita One', cursive;
+}
+
+
+h1 {
+  font-size: clamp(15px, 5vw, 50px);
+  text-align: center;
+  border: #3B3939 2px solid;
+  margin: 0 20px 10px;
+
+}
+
+.item {
+  font-size: clamp(15px, 2vw, 25px);
+}
+
+.mainForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(25px, 2vw, 50px);
+  margin-bottom: clamp(15px, 2vw, 50px);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.App {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sendBtn {
+
+  font-size: clamp(8px, 2vw, 15px);
+  border-radius: 5%;
+  cursor: pointer;
+  padding: clamp(5px, 2vw, 10px);
+  margin-top: 10px;
+  margin-right: 5px;
+  background-color: #3B3939;
+  color: #F1BB46;
+}
+
+#backBtn,
+#updateBtn {
+  margin-top: 10px;
+  font-size: clamp(8px, 2vw, 15px);
+  border-radius: 5%;
+  cursor: pointer;
+  padding: clamp(5px, 2vw, 10px);
+  margin-right: 5px;
+  background-color: #F1BB46;
+  color: #3B3939;
+
+}
+
+.addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: #3B3939;
+  box-shadow: 10px 3px 4px #232222;
+  color: #F1BB46;
+}
+
+#addBtn {
+
+  font-size: clamp(8px, 2vw, 15px);
+  border-radius: 5%;
+  cursor: pointer;
+  color: #F1BB46;
+  font-weight: 600;
+  padding: clamp(10px, 2vw, 20px);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 30px);
+}
+
+
+
+.deleteBtn {
+  background-color: #F1BB46;
+  color: #3B3939;
+  font-size: clamp(8px, 2vw, 15px);
+  border-radius: 5%;
+  cursor: pointer;
+  padding: clamp(5px, 2vw, 10px);
+  margin-right: 5px;
+}
+
+#btn {
+  color: #F1BB46;
+}
+
+.updateBtn {
+  background-color: #3B3939;
+  padding: clamp(5px, 2vw, 10px);
+  font-size: clamp(8px, 2vw, 15px);
+  border-radius: 5%;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#triskell {
+  width: clamp(100px, 100vw, 900px);
+  justify-content: center;
+}
+
+input {
+  margin-right: clamp(10px, 2vw, 20px);
+  height: clamp(20px, 3vw, 50px);
+  width: clamp(100px, 15vw, 200px);
+  margin-top: clamp(10px, 2vw, 20px);
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+
+}
+
+select {
+  margin-right: clamp(10px, 2vw, 20px);
+  height: clamp(20px, 3vw, 50px);
+  width: clamp(100px, 15vw, 200px);
+  margin-top: clamp(10px, 2vw, 20px);
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px 20px 0;
+}
+
+li {
+  font-size: clamp(12px, 2vw, 35px);
+  list-style-type: none;
+
+}
