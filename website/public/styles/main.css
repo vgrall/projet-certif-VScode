@@ -3,11 +3,8 @@ RESET
 ***************************************************************** */
 
 html,
-body,
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
+body {
+    margin: 10px;
 }
 
 ol,
@@ -186,10 +183,17 @@ HEADER
 /* Icône burger */
 .burger-icon span {
     display: block;
-    width: 35px;
-    height: 5px;
-    background-color: black;
+    width: 55px;
+    height: 8px;
+    background-color: white;
     margin: 6px 0;
+
+
+}
+
+.burger-icon {
+    position: absolute;
+    top: 5%;
 }
 
 /* *****************************************************************
@@ -565,21 +569,25 @@ li {
     /* Permet à crepeSort de prendre l'espace disponible restant */
     text-align: left;
     /* Aligne crepeSort à gauche */
-    margin-left: 50px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+
+
 }
 
 .price {
     text-align: right;
     /* Aligne price à droite */
-    margin-right: 50px;
-    font-size: 1.5rem;
+    padding-right: 30px;
+
 }
 
 /* **************************************************************
 PAGE RESTAURANT 
 ************************************************************** */
-
+#lien-carte-resto {
+    text-decoration: none;
+    color: white;
+}
 
 .restaurant {
 
@@ -593,6 +601,16 @@ PAGE RESTAURANT
     text-align: center;
     margin: 0 4rem;
 }
+
+#categoryTitle {
+    font-size: 2.5rem;
+    color: white;
+    background: #3B3939;
+    padding-left: 15px;
+
+}
+
+
 
 /* **************************************************************
 ANIMATION INFO RESTAURANT SUR PHOTO RESTAURANT 
@@ -608,7 +626,7 @@ ANIMATION INFO RESTAURANT SUR PHOTO RESTAURANT
 
 .restaurant-info {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
@@ -646,13 +664,13 @@ ECRAN de 600 @ 768px
 
     .crepeSort {
 
-        margin-left: 130px;
+
         font-size: 2.2rem;
     }
 
     .price {
 
-        margin-right: 130px;
+
         font-size: 2.2rem;
     }
 
@@ -778,13 +796,13 @@ ECRAN de 769 @ 1024px
 
     .crepeSort {
 
-        margin-left: 130px;
+
         font-size: 3rem;
     }
 
     .price {
 
-        margin-right: 130px;
+
         font-size: 3rem;
     }
 
@@ -872,6 +890,21 @@ POP-UP CONCOURS
 ECRAN de 1024 ET +
 ***************************************************************** */
 @media screen and (min-width: 1024px) {
+
+    /* *****************************************************************
+AFFICHAGE CARTE
+***************************************************************** */
+    .crepeSort {
+
+        font-size: 3.5rem;
+    }
+
+    .price {
+
+
+        font-size: 3.5rem;
+    }
+
 
     /* *****************************************************************
     NOS VALEURS
@@ -1062,7 +1095,6 @@ POP-UP CONCOURS
 
 
 
-
 }
 
 
@@ -1076,14 +1108,14 @@ ECRAN de 1665px ET +
 
     .crepeSort {
 
-        margin-left: 500px;
-        font-size: 3.5rem;
+
+        font-size: 3.7rem;
     }
 
     .price {
 
-        margin-right: 500px;
-        font-size: 3.5rem;
+
+        font-size: 3.7rem;
     }
 
 }

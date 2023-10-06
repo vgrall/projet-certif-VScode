@@ -1,0 +1,47 @@
+<%- include('includes/header') -%>
+
+<main class="carteCrepes">
+  <% let currentRestaurant = null; %>
+
+  <% for (let i = 0; i < carteParRestaurant.length; i++) { %>
+    <% const crepe = carteParRestaurant[i]; %>
+
+    <% if (crepe.RESTAURANT !== currentRestaurant) { %>
+      <% if (currentRestaurant !== null) { %>
+        </ul> <!-- Fermez la liste précédente -->
+      <% } %>
+      <% currentRestaurant = crepe.RESTAURANT; %>
+      <h2>CARTE KER ROZENN DE <%= currentRestaurant %></h2>
+      <ul>
+        <% let categoriesAffichees = new Set(); %>
+
+        <!-- Bouclez sur les produits et affichez-les sous leurs catégories -->
+        <% for (let j = i; j < carteParRestaurant.length; j++) { %>
+          <% const produit = carteParRestaurant[j]; %>
+          <% if (produit.RESTAURANT === currentRestaurant) { %>
+            <!-- Vérifiez si la catégorie n'a pas déjà été affichée -->
+            <% if (!categoriesAffichees.has(produit.CATEGORY)) { %>
+              
+              <li id="categoryTitle">CATÉGORIE : <%= produit.CATEGORY %></li>
+              
+              <% categoriesAffichees.add(produit.CATEGORY); %>
+
+              <!-- Affichez les produits correspondants à cette catégorie avec le prix -->
+              <% for (let k = j; k < carteParRestaurant.length; k++) { %>
+                <% const produitCategorie = carteParRestaurant[k]; %>
+                <% if (produitCategorie.RESTAURANT === currentRestaurant && produitCategorie.CATEGORY === produit.CATEGORY) { %>
+                  <li>
+                    <span class="crepeSort"><%= produitCategorie.PRODUIT %></span>
+                    <span class="price"><%= produitCategorie.PRIX.toFixed(2) %> €</span>
+                  </li>
+                <% } %>
+              <% } %>
+            <% } %>
+          <% } %>
+        <% } %>
+      </ul>
+    <% } %>
+  <% } %>
+</main>
+
+<%- include('includes/footer') -%>

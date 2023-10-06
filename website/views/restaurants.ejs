@@ -9,21 +9,24 @@
         <div class="row">
           <div class="restaurant">
             <div class="restaurant-image">
-              <img
+        
+                <img
                 id="restaurant_<%= restaurants[i].ID %>"
                 src="<%= restaurants[i].IMAGE %>"
                 alt="<%= restaurants[i].NAME %>"
+                
               >
               <p><%= restaurants[i].NAME %></p>
               
               <div class="restaurant-info">
-                <div class="info-content">
+                <a id="lien-carte-resto" href="<%= restaurants[i].ID %>/carte">
+                  <div class="info-content">
                   <p><%= restaurants[i].NAME %></p>
                   <p><%= restaurants[i].ADRESSE %></p>
                   <span><%= restaurants[i].CP %></span>
                   <span><%= restaurants[i].VILLE %></span>
                     <p><%= restaurants[i].PHONE %></p>
-                </div>
+                </div></a>
               </div>
             </div>
           </div>

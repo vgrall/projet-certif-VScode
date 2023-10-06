@@ -7,6 +7,7 @@ import boissonControler from "./controlers/boissonControler.js";
 import addAvisControler from "./controlers/addAvisControler.js";
 import addConcoursControler from "./controlers/addConcoursControler.js";
 import restaurantControler from "./controlers/restaurantControler.js";
+import carteControler from "./controlers/carteControler.js";
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router.get("/crepe", crepeControler);
 router.get("/galette", galetteControler);
 router.get("/boissons", boissonControler);
 router.get("/restaurants", restaurantControler);
+router.get("/:id/carte", carteControler);
 
 router.post("/concours/", addConcoursControler);
 
