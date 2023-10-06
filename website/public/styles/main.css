@@ -4,7 +4,7 @@ RESET
 
 html,
 body {
-    margin: 10px;
+    margin: 5px 10px;
 }
 
 ol,
@@ -17,7 +17,7 @@ table {
     border-spacing: 0;
 }
 
-body * {
+body {
     box-sizing: border-box;
 }
 
@@ -44,7 +44,6 @@ body {
 
 h1 {
     font-size: 5rem;
-    margin: 3rem 0;
     text-align: center;
 }
 
@@ -84,7 +83,7 @@ HEADER
 
 .hero-content {
     color: #F1BB46;
-    height: 25vh;
+    height: 28vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,24 +92,24 @@ HEADER
 }
 
 #titleRozenn {
-    font-size: clamp(30px, 1.5vw, 80px);
+    font-size: clamp(10px, 8vw, 80px);
     height: clamp(10px, 1.5vw, 50px);
     letter-spacing: clamp(0.3px, 0.5vw, 5px);
-
-
+    margin-top: 20px;
 
 }
 
 #triskell {
     max-width: 100%;
-    width: clamp(50px, 3.5vw, 150px);
-    padding-top: 3px;
+    width: clamp(50px, 5vw, 150px);
+    padding-top: 15px;
 }
 
 
 #punchline {
-    font-size: clamp(23px, 1vw, 70px);
-    margin-top: 0.5rem;
+    font-size: clamp(20px, 1vw, 80px);
+    margin-top: 0rem;
+
 
 }
 
@@ -183,8 +182,8 @@ HEADER
 /* Icône burger */
 .burger-icon span {
     display: block;
-    width: 55px;
-    height: 8px;
+    width: 35px;
+    height: 5px;
     background-color: white;
     margin: 6px 0;
 
@@ -193,7 +192,10 @@ HEADER
 
 .burger-icon {
     position: absolute;
-    top: 5%;
+    top: 3%;
+    left: 8%;
+
+
 }
 
 /* *****************************************************************
@@ -655,7 +657,9 @@ ECRAN de 600 @ 768px
 ***************************************************************** */
 @media screen and (min-width: 600px) and (max-width: 768px) {
 
-
+    .burger-icon {
+        left: 3%;
+    }
 
     #kerrozenn {
         padding-top: 2rem;
@@ -882,6 +886,10 @@ POP-UP CONCOURS
 
 
 
+    .burger-icon {
+        left: 3%;
+    }
+
 
 }
 
@@ -1093,6 +1101,10 @@ POP-UP CONCOURS
         transform: translate(-50%, -45%);
     }
 
+
+    .burger-icon {
+        left: 3%;
+    }
 
 
 }
