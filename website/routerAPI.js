@@ -3,25 +3,32 @@ import express from "express";
 
 const router = express.Router();
 
-
 // redirection vers la page d'accueil
-router.get("/api", 
-  (req, res) => {
-    res.redirect("/");
-  }
-);
+router.get("/api", (req, res) => {
+  res.redirect("/");
+});
 
 // /******************  /API : Menu Items *******************/
 
+const checkAuthentification = (req, res, next) => {
+  // check if session is logged
+  if (!req.session.isLogged) {
+    // return http error not authorized
+    res.status(401).send("Unauthorized");
+    return;
+  }
+  next();
+};
 
 /**
  * API : Menus
  * Recuperation de tous les menus
  */
 router.get("/api/menus", (req, res) => {
-  const q = "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id "
-          +"FROM MENU_ITEMS as m , CATEGORIES as c WHERE c.ID = m.CATEGORIES_ID "
-          +"ORDER BY m.name ASC";
+  const q =
+    "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id " +
+    "FROM MENU_ITEMS as m , CATEGORIES as c WHERE c.ID = m.CATEGORIES_ID " +
+    "ORDER BY m.name ASC";
   query(q, [], (error, data) => {
     if (error) {
       console.log(error);
@@ -32,20 +39,20 @@ router.get("/api/menus", (req, res) => {
   });
 });
 
-
 /**
  * API : Menus
  * Insertion d'un menu item
  */
 router.post("/api/menus", (req, res) => {
-  console.log( "POST /api/menus",  req.body );
+  console.log("POST /api/menus", req.body);
   const categories_id = req.body.categories_id;
   const name = req.body.name;
   const price = req.body.price;
 
   // id généré automatiquement (AUTO_INCREMENT)
   // voir https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html
-  const q = "INSERT INTO MENU_ITEMS (name, price, categories_id) VALUES (?, ?, ?)";
+  const q =
+    "INSERT INTO MENU_ITEMS (name, price, categories_id) VALUES (?, ?, ?)";
   const values = [name, price, categories_id];
 
   query(q, values, (error, data) => {
@@ -58,17 +65,17 @@ router.post("/api/menus", (req, res) => {
   });
 });
 
-
 /**
  * API : Menus
  * Recuperation d'un menu item
  */
 router.get("/api/menus/:id", (req, res) => {
   const id = req.params.id;
-  const q = "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id "
-            +"FROM MENU_ITEMS as m , CATEGORIES as c "
-            +"WHERE c.ID = m.CATEGORIES_ID "
-            +"AND m.id = ? ";
+  const q =
+    "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id " +
+    "FROM MENU_ITEMS as m , CATEGORIES as c " +
+    "WHERE c.ID = m.CATEGORIES_ID " +
+    "AND m.id = ? ";
   query(q, [id], (error, data) => {
     if (error) {
       console.log(error);
@@ -83,7 +90,6 @@ router.get("/api/menus/:id", (req, res) => {
     }
   });
 });
-
 
 /**
  * API : Menus
@@ -102,7 +108,6 @@ router.delete("/api/menus/:id", (req, res) => {
   });
 });
 
-
 /**
  * API : Menus
  * Modification d'un menu item
@@ -113,8 +118,9 @@ router.put("/api/modif/:id", (req, res) => {
   const categories_id = req.body.categories_id;
   const name = req.body.name;
   const price = req.body.price;
-  
-  const q = "UPDATE MENU_ITEMS SET name= ?, price= ?, categories_id = ? WHERE id = ?";
+
+  const q =
+    "UPDATE MENU_ITEMS SET name= ?, price= ?, categories_id = ? WHERE id = ?";
   const values = [name, price, categories_id, id];
   query(q, values, (error, data) => {
     if (error) {
@@ -128,9 +134,7 @@ router.put("/api/modif/:id", (req, res) => {
 
 // /******************  /API : Menu Items *******************/
 
-
 // /******************  API : Categories *******************/
-
 
 /**
  * API : Categories
@@ -138,7 +142,7 @@ router.put("/api/modif/:id", (req, res) => {
  */
 router.get("/api/categories", (req, res) => {
   const q = "SELECT * FROM CATEGORIES ORDER BY ID ASC";
-  query(q,[], (error, data) => {
+  query(q, [], (error, data) => {
     if (error) {
       console.log(error);
       res.json(error);

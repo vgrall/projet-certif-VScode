@@ -10,6 +10,8 @@ export function login(req, res) {
 
   // Récupération du USERS par son pseudo
   query("SELECT * FROM USERS WHERE PSEUDO = ?", [pseudo], (error, result) => {
+    console.log("pseudo et pwd : " + pseudo + ", " + password);
+
     // Gestion de l'erreur
     if (error) {
       console.error(`Erreur lors l'exécution de la requête : ${error}`);
@@ -18,21 +20,17 @@ export function login(req, res) {
     }
 
     // Si l'utilisateur n'a pas été trouvé
-    console.log(result);
+    console.log("retour :", result);
     if (result.length === 0) {
       res.render("loginForm", { message: "Identifiants non retrouvé" });
       return;
     }
-    console.log(password, result[0].password);
-    // Vérification du mot de passe
-
-    bcrypt.compare(password, result[0].password, (error, hashresult) => {
-      if (!hashresult) {
-        res.render("loginForm", { message: "Identifiants incorrects" });
-        return;
-      }
-      req.session.isLogged = true;
-      res.redirect("/");
-    });
+    const isPasswordOk = bcrypt.compareSync(password, result[0].PASSWORD);
+    if (!isPasswordOk) {
+      res.render("loginForm", { message: "Identifiants incorrects" });
+      return;
+    }
+    req.session.isLogged = true;
+    res.redirect("/admin");
   });
 }

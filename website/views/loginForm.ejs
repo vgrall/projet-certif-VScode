@@ -12,7 +12,7 @@
 
 <main>
     <h2>Login</h2>
-    <form class="adminForm" method="post">
+    <form class="adminForm" method="post" >  
         <div class="containerForm">
         <% if (locals.message) { %>
         <p class="identifiantIncorrect"><%= message %></p>
@@ -26,11 +26,11 @@
             <input type="password" name="password" id="password" />
         </p>
     </div>
-    </form>
-
     <p class="containerConnexion">
         <button class="adminBtn"  type="submit">Connexion</button>
     </p>
+    </form>
+
 </main>
 
 <%- include('includes/footer') -%>

@@ -15,24 +15,21 @@ export function addUserSubmit(req, res) {
   // Générez un nouvel identifiant UUID
   const userId = v4();
 
-  // Hachez le mot de passe avant de l'insérer en base de données
-  bcrypt.hash(req.body.password, 10, (error, hash) => {
-    if (error) {
-      console.log(error);
-      return res.status(500).send("Une erreur s'est produite");
-    }
+  const hashedPwd = bcrypt.hashSync(req.body.password, 10);
 
-    query(
-      `INSERT INTO USERS (ID, PSEUDO, PASSWORD, ROLE) VALUES (?, ?, ?, ?)`,
-      [userId, req.body.pseudo, hash, req.body.role],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return res.status(500).send("Une erreur s'est produite");
-        }
-        console.log("Utilisateur créé avec succès. ID:", userId);
-        res.redirect("/");
+  // Enregistrez l'utilisateur dans la base de données
+  console.log("req.body", req.body, "hashedPwd", hashedPwd);
+
+  query(
+    `INSERT INTO USERS (ID, PSEUDO, PASSWORD, ROLE) VALUES (?, ?, ?, ?)`,
+    [userId, req.body.pseudo, hashedPwd, req.body.role],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("Une erreur s'est produite");
       }
-    );
-  });
+      console.log("Utilisateur créé avec succès. ID:", userId);
+      res.redirect("/");
+    }
+  );
 }
