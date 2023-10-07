@@ -1,11 +1,11 @@
 <%- include('includes/header') -%>
 <p class="containerConnexion">
 <ul class="submitBtn">
-    <% if (locals.isLogged) { %>
+    
     <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/logout">Logout</a></button></li>
-    <% } else { %>
+   
     <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/login">Login</a></button></li>
-    <% } %>
+
     <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/user/add">gestion user</a></button></li>
 </ul>
 </p>

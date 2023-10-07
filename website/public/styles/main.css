@@ -648,10 +648,31 @@ ANIMATION INFO RESTAURANT SUR PHOTO RESTAURANT
     display: block;
 }
 
+/* *****************************************************************
+BOUTONS ADMIN DANS FOOTER
+***************************************************************** */
 
+#adminBtn {
+    background-color: #cac6c6;
+    border-radius: 5%;
+    padding: 10px;
+    margin: 10px;
+    color: #3B3939;
+    font-size: 1rem;
+    border: solid 1px #3B3939;
+    cursor: pointer;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+.btnAdmin {
+    display: flex;
+    justify-content: center;
+}
 
 /* *****************************************************************
-BOUTONS ADMIN
+BOUTONS ADMIN DANS FORMULAIRE
 ***************************************************************** */
 .linkSubmit {
     text-decoration: none;
