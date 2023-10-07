@@ -12,9 +12,9 @@ import carteControler from "./controlers/carteControler.js";
 const router = express.Router();
 
 router.get("/", homeControler);
-router.get("/crepe", crepeControler);
-router.get("/galette", galetteControler);
-router.get("/boissons", boissonControler);
+// router.get("/crepe", crepeControler);
+// router.get("/galette", galetteControler);
+// router.get("/boissons", boissonControler);
 router.get("/restaurants", restaurantControler);
 router.get("/:id/carte", carteControler);
 

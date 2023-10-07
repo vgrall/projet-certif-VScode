@@ -20,16 +20,16 @@
           <% const produit = carteParRestaurant[j]; %>
           <% if (produit.RESTAURANT === currentRestaurant) { %>
             <!-- Vérifiez si la catégorie n'a pas déjà été affichée -->
-            <% if (!categoriesAffichees.has(produit.CATEGORY)) { %>
+            <% if (!categoriesAffichees.has(produit.CATE_PRODUIT)) { %>
               
-              <li id="categoryTitle">CATÉGORIE : <%= produit.CATEGORY %></li>
+              <li id="categoryTitle"> <%= produit.CATE_PRODUIT.toUpperCase() %></li>
               
-              <% categoriesAffichees.add(produit.CATEGORY); %>
+              <% categoriesAffichees.add(produit.CATE_PRODUIT); %>
 
               <!-- Affichez les produits correspondants à cette catégorie avec le prix -->
               <% for (let k = j; k < carteParRestaurant.length; k++) { %>
                 <% const produitCategorie = carteParRestaurant[k]; %>
-                <% if (produitCategorie.RESTAURANT === currentRestaurant && produitCategorie.CATEGORY === produit.CATEGORY) { %>
+                <% if (produitCategorie.RESTAURANT === currentRestaurant && produitCategorie.CATE_PRODUIT === produit.CATE_PRODUIT) { %>
                   <li>
                     <span class="crepeSort"><%= produitCategorie.PRODUIT %></span>
                     <span class="price"><%= produitCategorie.PRIX.toFixed(2) %> €</span>

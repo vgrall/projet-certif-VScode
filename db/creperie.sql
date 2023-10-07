@@ -253,7 +253,7 @@ INSERT INTO
         `PHONE`
     )
 VALUES (
-        'PLENEUF',
+        'DAHOUET',
         'Ker Rozzen (Dahouet)',
         '26 quai des Terre-Neuvas - Dahouët',
         22370,
@@ -313,7 +313,7 @@ VALUES (
         'tonyManero@gmail.com',
         DATE("2023-06-15 09:34:21"),
         5,
-        'PLENEUF'
+        'DAHOUET'
     );
 
 INSERT INTO
@@ -335,7 +335,7 @@ VALUES (
         'sarahConnor@gmail.com',
         DATE("2023-02-15 19:34:21"),
         4,
-        'PLENEUF'
+        'DAHOUET'
     );
 
 INSERT INTO
@@ -827,7 +827,7 @@ INSERT INTO
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (1, 'PLENEUF');
+VALUES (1, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
@@ -1205,182 +1205,182 @@ INSERT INTO
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (2, 'PLENEUF');
+VALUES (2, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (3, 'PLENEUF');
+VALUES (3, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (4, 'PLENEUF');
+VALUES (4, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (5, 'PLENEUF');
+VALUES (5, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (6, 'PLENEUF');
+VALUES (6, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (7, 'PLENEUF');
+VALUES (7, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (8, 'PLENEUF');
+VALUES (8, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (9, 'PLENEUF');
+VALUES (9, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (10, 'PLENEUF');
+VALUES (10, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (11, 'PLENEUF');
+VALUES (11, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (12, 'PLENEUF');
+VALUES (12, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (13, 'PLENEUF');
+VALUES (13, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (14, 'PLENEUF');
+VALUES (14, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (15, 'PLENEUF');
+VALUES (15, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (16, 'PLENEUF');
+VALUES (16, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (17, 'PLENEUF');
+VALUES (17, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (18, 'PLENEUF');
+VALUES (18, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (19, 'PLENEUF');
+VALUES (19, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (20, 'PLENEUF');
+VALUES (20, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (21, 'PLENEUF');
+VALUES (21, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (22, 'PLENEUF');
+VALUES (22, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (23, 'PLENEUF');
+VALUES (23, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (24, 'PLENEUF');
+VALUES (24, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (25, 'PLENEUF');
+VALUES (25, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (26, 'PLENEUF');
+VALUES (26, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
         `MENU_ITEMS_ID`,
         `RESTAURANTS_ID`
     )
-VALUES (27, 'PLENEUF');
+VALUES (27, 'DAHOUET');
 
 INSERT INTO
     `mydb`.`MENU_ITEMS_has_RESTAURANTS` (
