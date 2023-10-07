@@ -1,0 +1,46 @@
+<%- include('includes/header') -%>
+
+<p class="containerConnexion">
+<ul class="submitBtn">
+    <% if (locals.isLogged) { %>
+    <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/logout">Logout</a></button></li>
+    <% } else { %>
+    <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/login">Login</a></button></li>
+    <% } %>
+    <li ><button class="adminBtn" type="submit"><a class ="linkSubmit" href="/user/add">gestion user</a></button></li>
+</ul>
+</p>
+
+<main>
+    <h2>Création de Users par l'Administrateur</h2>
+    <form class = "adminForm" method="post">
+        <div class="containerForm">
+        <% if (locals.message) { %>
+        <p class="identifiantIncorrect"><%= message %></p>
+        <% } %>
+        <p>
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="pseudo" id="pseudo" />
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </p>
+
+
+        <p>
+            <label for="role">Rôle</label>
+            <select name='role' id="role">
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </p>
+    </div>
+    </form>
+
+    <p class="containerConnexion">
+        <button class="adminBtn"  type="submit">Connexion</button>
+    </p>
+</main>
+
+<%- include('includes/footer') -%>

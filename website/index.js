@@ -3,11 +3,22 @@ import router from "./router.js";
 import routerAPI from "./routerAPI.js";
 import cors from "cors";
 import dotenv from "dotenv";
+import session from "express-session";
 
 dotenv.config();
 
 const PORT = 3000;
 const app = express();
+
+// utilisation d'une session
+app.use(
+  session({
+    secret: "sdgfdgdfgdfgfdg",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 3600000 },
+  })
+);
 
 app.set("view engine", "ejs"); // Définit le moteur de modèle EJS
 app.set("views", "./views"); // Définit le répertoire des vues

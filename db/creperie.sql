@@ -26,6 +26,23 @@ USE `mydb` ;
 
 -- -----------------------------------------------------
 
+-- Table `mydb`.`USERS`
+
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `mydb`.`USERS` ;
+
+CREATE TABLE
+    IF NOT EXISTS `mydb`.`USERS` (
+        `ID` VARCHAR(255) NOT NULL,
+        `PSEUDO` VARCHAR(255) NOT NULL,
+        `PASSWORD` VARCHAR(255) NOT NULL,
+        `ROLE` VARCHAR(255) NOT NULL,
+        PRIMARY KEY (`ID`)
+    ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+
 -- Table `mydb`.`RESTAURANTS`
 
 -- -----------------------------------------------------
