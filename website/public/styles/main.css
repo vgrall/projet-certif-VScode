@@ -718,11 +718,15 @@ BOUTONS ADMIN DANS FORMULAIRE
     justify-content: center;
 }
 
+/* *****************************************************************
+MENTIONS LEGALES CNIL
+***************************************************************** */
+
 #dateMentions,
 #legalPlace,
 #footerMentions {
     text-align: center;
-    font-style: italic;
+
 }
 
 
@@ -732,7 +736,18 @@ BOUTONS ADMIN DANS FORMULAIRE
 
 .containerMentions {
     text-align: justify;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3B3939;
+}
+
+.cnil {
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #3B3939;
+    text-align: center;
+    line-height: 1.2rem;
+    font-style: italic;
+
 }
 
 
