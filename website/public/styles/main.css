@@ -718,6 +718,24 @@ BOUTONS ADMIN DANS FORMULAIRE
     justify-content: center;
 }
 
+#dateMentions,
+#legalPlace,
+#footerMentions {
+    text-align: center;
+    font-style: italic;
+}
+
+
+#footerMentions {
+    font-size: 1.2rem;
+}
+
+.containerMentions {
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
 
 /* *****************************************************************
 ECRAN de 600 @ 768px

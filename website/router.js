@@ -11,6 +11,7 @@ import carteControler from "./controlers/carteControler.js";
 import { loginForm, login } from "./controlers/login.js";
 import logout from "./controlers/logout.js";
 import { addUser, addUserSubmit } from "./controlers/addUser.js";
+import mentions_legales from "./controlers/mentions_legales.js";
 
 //  Middleware pour vérifier si l'utilisateur est connecté
 const checkAuthentification = (req, res, next) => {
@@ -28,6 +29,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/", homeControler);
+router.get("/mentions_legales", mentions_legales);
 
 router.get("/login", loginForm);
 router.post("/login", login);
