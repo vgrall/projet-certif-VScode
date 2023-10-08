@@ -11,6 +11,7 @@ export default (req, res) => {
   const email = xss(req.body.email);
   const comment = req.body.comment;
   const satisfaction = xss(req.body.satisfaction);
+  const consent = req.body.consent;
   const restaurants_id = req.body.restaurants_id;
 
   // tester si le champ photo est vide et le mettre à undifined
@@ -20,8 +21,17 @@ export default (req, res) => {
 
   // id est généré automatiquement par la base de données
   query(
-    "INSERT INTO AVIS_CLIENTS (firstname, lastname, email, comment, satisfaction, photo, restaurants_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
-    [firstname, lastname, email, comment, satisfaction, photo, restaurants_id],
+    "INSERT INTO AVIS_CLIENTS (firstname, lastname, email, comment, satisfaction, consent, photo, restaurants_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [
+      firstname,
+      lastname,
+      email,
+      comment,
+      satisfaction,
+      consent,
+      photo,
+      restaurants_id,
+    ],
     (error, result) => {
       if (error) {
         console.log(error);

@@ -10,15 +10,15 @@ router.get("/api", (req, res) => {
 
 // /******************  /API : Menu Items *******************/
 
-const checkAuthentification = (req, res, next) => {
-  // check if session is logged
-  if (!req.session.isLogged) {
-    // return http error not authorized
-    res.status(401).send("Unauthorized");
-    return;
-  }
-  next();
-};
+// const checkAuthentification = (req, res, next) => {
+//   // check if session is logged
+//   if (!req.session.isLogged) {
+//     // return http error not authorized
+//     res.status(401).send("Unauthorized");
+//     return;
+//   }
+//   next();
+// };
 
 /**
  * API : Menus

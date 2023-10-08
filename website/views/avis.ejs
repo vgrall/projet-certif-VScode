@@ -19,20 +19,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="firstName">Prénom:</label>
+                        <label for="firstName">* Prénom:</label>
                         <input type="text" id="firstname" name="firstname" required>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Nom:</label>
+                        <label for="lastName">* Nom:</label>
                         <input type="text" id="lastname" name="lastname" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email:</label>
+                        <label for="email">* Email:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label>Votre satisfaction globale:</label>
+                        <label>* Votre satisfaction globale:</label>
                         <input type="radio" id="satisfaction5" name="satisfaction" value="5" required>
                         <label class="labelnumero" for="satisfaction5">5</label>
 
@@ -49,7 +49,7 @@
                         <label class="labelnumero" for="satisfaction1">1</label>
                     </div>
                     <div class="form-group">
-                        <label for="restaurant">Restaurant:</label>
+                        <label for="restaurant"> * Restaurant:</label>
                         <select name="restaurants_id" id="restaurants_id">
                             <% for(let i = 0; i < restaurants.length; i++) { %>
                             <option value="<%= restaurants[i].id %>"><%= restaurants[i].name %></option>
@@ -57,7 +57,7 @@
                         </select>
                     </div>                    
                     <div class="form-group">
-                        <label for="comment">Commentaires:</label>
+                        <label for="comment">* Commentaires:</label>
                         <textarea id="comment" minlength="10" name="comment" required></textarea>
                     </div>
                     <div class="form-group">
