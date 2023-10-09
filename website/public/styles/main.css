@@ -538,6 +538,10 @@ NOS VALEURS
     min-width: 271px;
 }
 
+.valeursP {
+    padding: clamp(0rem, 2%, 1rem);
+}
+
 .fa-solid {
     background-color: #3B3939;
     color: white;
@@ -553,6 +557,7 @@ PAGE CARTE
 .carteCrepes {
     text-align: center;
     /* Centre le contenu de la carteCrepes horizontalement */
+
 }
 
 li {
@@ -572,6 +577,7 @@ li {
     text-align: left;
     /* Aligne crepeSort à gauche */
     font-size: 1.2rem;
+
 
 
 }
@@ -1182,10 +1188,27 @@ POP-UP CONCOURS
 ECRAN A PARTIR DE 1200px
 ***************************************************************** */
 
+
+
 /* *****************************************************************
 POP-UP CONCOURS
 ***************************************************************** */
 @media screen and (min-width: 1200px) {
+    .crepeSort {
+        padding-left: 250px;
+    }
+
+    .price {
+        padding-right: 200px;
+    }
+
+    #categoryTitle {
+        margin-left: 250px;
+        margin-right: 200px;
+    }
+
+
+
     .pop-up {
 
         right: 5rem;
