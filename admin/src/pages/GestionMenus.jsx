@@ -43,7 +43,7 @@ const GestionMenus = ()=> {
             {/* insertion Triskell.jpg du fichier src/images*/}
             <img id="triskell" src="images/banner.png" alt="banner" />
         {/* Vous pouvez également ajouter un fond ici */}
-        </div>
+            </div>
        
         <div className="bodyList">
             <h1>LISTES DES PRODUITS</h1>

@@ -11,8 +11,13 @@ h1 {
 
 }
 
-.item {
+.item,
+.accueilP {
   font-size: clamp(15px, 2vw, 25px);
+}
+
+.accueilP {
+  margin-left: 150px;
 }
 
 .mainForm {
@@ -104,8 +109,14 @@ a {
   margin-right: 5px;
 }
 
-#btn {
+#btn,
+#adminBtn,
+#btnAccueil {
   color: #F1BB46;
+}
+
+#btnAccueil {
+  margin-right: 200px;
 }
 
 .updateBtn {
@@ -162,4 +173,36 @@ li {
   font-size: clamp(12px, 2vw, 35px);
   list-style-type: none;
 
+}
+
+.adminInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+  border-radius: 5%;
+  border: #3B3939 2px solid;
+}
+
+
+
+.adminForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+}
+
+.alertAdmin {
+  font-size: 20px;
+  color: red;
+}
+
+.containerChoix {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

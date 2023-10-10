@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config();
 import mysql from "mysql";
+
+dotenv.config();
 
 // Création du pool de connexion
 const pool = mysql.createPool({
