@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
@@ -7,7 +7,7 @@ export default function Pseudo({inputStates, setInputStates, showValidation}) {
 
     return (
         <>
-            <label htmlFor="password" className="text-slate-50 inline-block mt-5">
+            <label htmlFor="password">
                 Mot de passe (1 chiffre minimum et 6 caractères)
                 </label>
 

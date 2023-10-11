@@ -5,23 +5,23 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const Validation = () => {
-    const [validation, setValidation] = useState([]);
+    const [accueil, setAccueil] = useState([]);
     const apiServer = "http://" + window.location.hostname + ":3000";
 
     useEffect(() => {
-        const fetchAllValidation = async () => {
+        const fetchAllAccueil = async () => {
             try {
                 const url = apiServer + "/api/accueil";
                 console.log("get validation items ", url);
                 const res = await axios.get(url);
-                setValidation(res.data);
+                setAccueil(res.data);
                 console.log(res);
             } catch (err) {
                 console.log(err);
             }
         };
 
-        fetchAllValidation();
+        fetchAllAccueil();
     }, [apiServer]); 
 
     const [inputStates, setInputStates] = useState({
@@ -93,11 +93,11 @@ const Validation = () => {
                         showValidation={showValidation}
                     />
 
-                    <Link to="/accueil">
+                    
                         <button id="adminBtn" className="updateBtn">
                             Valider
                         </button>
-                    </Link>
+                   
                 </form>
             </div>
         </>

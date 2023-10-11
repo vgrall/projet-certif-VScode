@@ -146,8 +146,17 @@ router.get("/api/categories", (req, res) => {
  * API : User
  * Recuperation de tous les Users
  */
+
 router.get("/api/accueil", (req, res) => {
-  // res.json(data);
+  const q = "SELECT a.id, a.pseudo, a.password " + "FROM USERS as a";
+  query(q, [], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json(data);
+  });
 });
 
 router.post("/api/accueil", (req, res) => {
@@ -163,17 +172,18 @@ router.post("/api/accueil", (req, res) => {
   query(q, values, (error, data) => {
     if (error) {
       console.log(error);
-      res.status(500).json("Erreur serveur"); // Répondez avec une erreur 500 en cas d'erreur SQL
+      res.status(500).json("Erreur serveur");
       return;
     }
 
     if (data.length === 0) {
-      res.status(401).json("Identifiants incorrects"); // Répondez avec un statut 401 si les identifiants sont incorrects
+      res.status(401).json("Identifiants incorrects");
       return;
     }
 
     // Authentification réussie
-    res.status(200).json("Connexion réussie");
+
+    res.redirect("/accueil");
   });
 });
 
