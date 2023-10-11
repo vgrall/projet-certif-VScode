@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'; // Importez useEffect depuis 'react'
 import Pseudo from './Pseudo';
 import Password from './Password';
-import { Link } from "react-router-dom";
 import axios from 'axios';
 
+
 const Validation = () => {
+   
     const [accueil, setAccueil] = useState([]);
     const apiServer = "http://" + window.location.hostname + ":3000";
 
@@ -40,39 +41,28 @@ const Validation = () => {
         e.preventDefault();
 
         if (ValidationCheck()) {
-            console.log('envoie du formulaire');
+            console.log('demande de connexion validée');
+            window.location.href = '/accueil';
         }
     }
 
     function ValidationCheck() {
-        const areValid = {
-            pseudo: false,
-            password: false,
-        };
-
-        // Check pseudo length
-        if (inputStates.pseudo.length < 3 || inputStates.pseudo.length > 64) {
-            setShowValidation((state) => ({ ...state, pseudo: true }));
-        } else {
-            areValid.pseudo = true;
-            setShowValidation((state) => ({ ...state, pseudo: false }));
-        }
-
-        // Check password length
-        if (inputStates.password.length < 6 || !/\d/.test(inputStates.password)) {
-            setShowValidation((state) => ({ ...state, password: true }));
-        } else {
-            areValid.password = true;
-            setShowValidation((state) => ({ ...state, password: false }));
-        }
-
-        if (Object.values(areValid).every((value) => value)) {
-            return true;
-        } else {
-            return false;
+        const { pseudo, password } = inputStates; // Obtenez le pseudo et le mot de passe à partir des états React
+    
+        // Comparez le pseudo et le mot de passe avec les données récupérées du serveur
+        const user = accueil.find((user) => user.pseudo === pseudo && user.password === password);
+    
+        if (user) {
+            return true; // Authentification réussie
+        } 
+        else {
+            setShowValidation({
+                pseudo: true,
+                password: true,
+            });
+            return false; // Identifiants incorrects
         }
     }
-
     return (
         <>
             <div>

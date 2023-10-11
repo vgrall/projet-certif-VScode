@@ -12,7 +12,7 @@ const Administration = ()=> {
         const fecthAllAdministration = async () => {
 
             try{
-                const url = apiServer+ `/api/administration`;
+                const url = apiServer+ `/api/accueil`;
                 console.log("get administration items ", url);
                 const res = await axios.get(url);
                 setAdministration(res.data);

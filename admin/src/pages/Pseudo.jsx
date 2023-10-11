@@ -6,7 +6,7 @@ export default function Pseudo({inputStates, setInputStates, showValidation}) {
     return (
         <>
             <label htmlFor="userName">
-                Pseudo (3 caractères minimum)
+                Pseudo
             </label>
 
             <input
@@ -21,10 +21,7 @@ export default function Pseudo({inputStates, setInputStates, showValidation}) {
                     })
                 }
             />
-            {showValidation.pseudo && (
-                <p className="alertAdmin">Votre pseudo est incorrect</p>
-            
-            )}
+          
 
         </>
     );

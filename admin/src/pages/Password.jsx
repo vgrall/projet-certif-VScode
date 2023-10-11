@@ -8,7 +8,7 @@ export default function Pseudo({inputStates, setInputStates, showValidation}) {
     return (
         <>
             <label htmlFor="password">
-                Mot de passe (1 chiffre minimum et 6 caractères)
+                Mot de passe
                 </label>
 
             <input id="password"
@@ -21,7 +21,7 @@ export default function Pseudo({inputStates, setInputStates, showValidation}) {
             </input>
 
             {showValidation.password && (
-                <p className="alertAdmin">Votre mot de passe est incorrect</p>
+                <p className="alertAdmin">Erreur d'Authentification</p>
             
             )}
         </>

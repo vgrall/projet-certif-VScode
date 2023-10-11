@@ -143,8 +143,8 @@ router.get("/api/categories", (req, res) => {
 });
 
 /**
- * API : User
- * Recuperation de tous les Users
+ * API : Page d'administration
+ * afficher la page lorsque l'utilisateur est vérifié (voir middleware)
  */
 
 router.get("/api/accueil", (req, res) => {
@@ -155,35 +155,8 @@ router.get("/api/accueil", (req, res) => {
       res.json(error);
       return;
     }
+
     res.json(data);
-  });
-});
-
-router.post("/api/accueil", (req, res) => {
-  console.log("POST /api/menus", req.body);
-
-  const id = req.body.id;
-  const password = req.body.password;
-
-  console.log("POST /api/accueil", req.body);
-  const q = "SELECT * FROM USERS WHERE id = ? AND password = ?";
-  const values = [id, password];
-
-  query(q, values, (error, data) => {
-    if (error) {
-      console.log(error);
-      res.status(500).json("Erreur serveur");
-      return;
-    }
-
-    if (data.length === 0) {
-      res.status(401).json("Identifiants incorrects");
-      return;
-    }
-
-    // Authentification réussie
-
-    res.redirect("/accueil");
   });
 });
 
