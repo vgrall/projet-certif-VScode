@@ -143,6 +143,73 @@ router.get("/api/categories", (req, res) => {
 });
 
 /**
+ * API : Concours
+ * Recuperation de tous les mails du concours mensuel
+ */
+router.get("/api/concours", (req, res) => {
+  const q = "SELECT id, mail FROM CONCOURS";
+  query(q, [], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json(data);
+  });
+});
+
+/**
+ * API : Concours
+ * Suppression d'un mail participant
+ */
+router.delete("/api/concours/:id", (req, res) => {
+  const id = req.params.id;
+  const q = "DELETE FROM CONCOURS WHERE id = ?";
+  query(q, [id], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json("Element supprimé avec succès");
+  });
+});
+
+/**
+ * API : des Avis
+ * Recuperation de tous les avis du formulaire
+ */
+router.get("/api/avis", (req, res) => {
+  const q =
+    "SELECT id, photo, comment, firstname, lastname, email, date_creation, satisfaction, consent, restaurants_id FROM AVIS_CLIENTS";
+  query(q, [], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json(data);
+  });
+});
+
+/**
+ * API : Concours
+ * Suppression d'un mail participant
+ */
+router.delete("/api/avis/:id", (req, res) => {
+  const id = req.params.id;
+  const q = "DELETE FROM AVIS_CLIENTS WHERE id = ?";
+  query(q, [id], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json("Element supprimé avec succès");
+  });
+});
+
+/**
  * API : Page d'administration
  * afficher la page lorsque l'utilisateur est vérifié (voir middleware)
  */
@@ -159,6 +226,88 @@ router.get("/api/accueil", (req, res) => {
     res.json(data);
   });
 });
+
+// ****************************************************************************************
+// BROUILLON POUR CRYPTAGE MDP
+// ****************************************************************************************
+
+/**
+ * API : Vérification d'utilisateur
+ * Récupération des utilisateurs pour vérification (à des fins de démonstration uniquement)
+ */
+// router.get("/api/accueil", (req, res) => {
+//   const q = "SELECT a.id, a.pseudo, a.password FROM USERS as a";
+//   query(q, [], (error, data) => {
+//     if (error) {
+//       console.log(error);
+//       res.json(error);
+//       return;
+//     }
+//     res.json(data);
+//   });
+// });
+
+/**
+ * API : Hachage de mot de passe (à des fins de démonstration uniquement, en pratique, le hachage doit être effectué côté serveur)
+ */
+// router.post("/api/hashPassword", (req, res) => {
+//   const plainTextPassword = req.body.password;
+
+//   // Hash du mot de passe côté serveur (en pratique, cela doit être effectué côté serveur)
+//   const saltRounds = 10; // Nombre de tours de hachage
+//   bcrypt.hash(plainTextPassword, saltRounds, (error, hashedPassword) => {
+//     if (error) {
+//       console.log(error);
+//       res.json(error);
+//       return;
+//     }
+//     res.json({ hashedPassword });
+//   });
+// });
+
+/**
+ * API : Authentification de l'utilisateur
+ * Vérification du pseudo et du mot de passe haché
+ */
+// router.post("/api/authenticate", (req, res) => {
+//   const { pseudo, hashedPassword } = req.body;
+
+//   // Récupérez les utilisateurs à partir de la base de données (à des fins de démonstration uniquement)
+//   const q =
+//     "SELECT a.id, a.pseudo, a.password FROM USERS as a WHERE a.pseudo = ?";
+//   query(q, [pseudo], (error, data) => {
+//     if (error) {
+//       console.log(error);
+//       res.json(error);
+//       return;
+//     }
+
+//     if (data.length === 0) {
+//       res.json({ isAuthenticated: false });
+//       return;
+//     }
+
+//     // Comparez le mot de passe haché avec le mot de passe stocké en base de données
+//     const user = data[0];
+//     bcrypt.compare(hashedPassword, user.password, (compareError, result) => {
+//       if (compareError) {
+//         console.log(compareError);
+//         res.json(compareError);
+//         return;
+//       }
+
+//       if (result) {
+//         res.json({ isAuthenticated: true });
+//       } else {
+//         res.json({ isAuthenticated: false });
+//       }
+//     });
+//   });
+// });
+
+// ****************************************************************************************
+// BROUILLON POUR CRYPTAGE MDP
+// ****************************************************************************************
 
 // /******************  /API : Categories *******************/
 

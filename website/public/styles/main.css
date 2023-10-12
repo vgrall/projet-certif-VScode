@@ -1144,8 +1144,12 @@ PAGE RESTAURANT
         /* Espacement entre les éléments */
         max-width: 1000px;
         /* Largeur maximale de la grille */
-        margin: 0 auto;
+        /* margin: 0 auto; */
         /* Centrer la grille horizontalement */
+    }
+
+    .restaurants-panel {
+        margin: 0;
     }
 
     .row {
@@ -1159,8 +1163,8 @@ PAGE RESTAURANT
         text-align: center;
     }
 
-    .restaurant img {
-        max-width: 100%;
+    .restaurant-image {
+
         height: auto;
         display: block;
         margin: 0 auto;

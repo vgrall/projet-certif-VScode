@@ -32,19 +32,31 @@ const Administration = ()=> {
         <div>
             <div className="banner">
           
-            <img id="triskell" src="images/banner.png" alt="banner" />
+                <img id="triskell" src="images/banner.png" alt="banner" />
      
             </div>
        
-            <div className="bodyList">
-            <h1>PAGE ADMINISTRATION</h1>
-            <div className="containerChoix">
-            <p className="accueilP">Gestion des menus</p>
-            <Link to="/carte">
-            <button id="btnAccueil" className="updateBtn">Valider</button>
-            </Link>
-            </div>
-        </div>
+                <div className="bodyList">
+                    <h1>PAGE ADMINISTRATION</h1>
+
+                    <div className="containerChoix">
+                        <p className="accueilP">Gestion des menus</p>
+                        <Link to="/carte">
+                        <button id="btnAccueil" className="updateBtn">Valider</button>
+                        </Link>
+
+                        <p className="accueilP">Gestion du concours</p>
+                        <Link to="/concours">
+                        <button id="btnAccueil" className="updateBtn">Valider</button>
+                        </Link>
+
+                        <p className="accueilP">Gestion des avis</p>
+                        <Link to="/avis">
+                        <button id="btnAccueil" className="updateBtn">Valider</button>
+                        </Link>
+
+                    </div>
+                </div>
             </div>
   );
 };

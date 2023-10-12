@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Importez useEffect depuis 'react'
+import React, { useState, useEffect } from 'react'; 
 import Pseudo from './Pseudo';
 import Password from './Password';
 import axios from 'axios';
@@ -25,6 +25,52 @@ const Validation = () => {
         fetchAllAccueil();
     }, [apiServer]); 
 
+// ****************************************************************************************
+// BROUILLON POUR CRYPTAGE MDP
+// ****************************************************************************************
+        // const [inputStates, setInputStates] = useState({
+        //   pseudo: '',
+        //   password: '',
+        // });
+      
+        // const [showValidation, setShowValidation] = useState({
+        //   pseudo: false,
+        //   password: false,
+        // });
+      
+        // console.log(inputStates);
+      
+        // async function handleSubmit(e) {
+        //   e.preventDefault();
+      
+        //   // Hash du mot de passe côté client (à des fins de démonstration uniquement, en pratique, le hachage doit être effectué côté serveur)
+        //   const hashedPassword = await hashPassword(inputStates.password);
+      
+        //   // Envoyez le pseudo et le mot de passe haché au serveur
+        //   const result = await authenticateUser(inputStates.pseudo, hashedPassword);
+      
+        //   if (result) {
+        //     console.log('Demande de connexion validée');
+        //     window.location.href = '/accueil';
+        //   }
+        // }
+      
+        // async function hashPassword(password) {
+        //   // Vous pouvez utiliser une bibliothèque de hachage, par exemple, bcrypt.js pour le hachage
+        //   // Cependant, notez que le hachage doit être effectué côté serveur dans une application réelle.
+        //   const response = await axios.post('/api/hashPassword', { password });
+        //   return response.data.hashedPassword;
+        // }
+      
+        // async function authenticateUser(pseudo, hashedPassword) {
+        //   // Envoyez le pseudo et le mot de passe haché au serveur pour validation
+        //   const response = await axios.post('/api/authenticate', { pseudo, hashedPassword });
+        //   return response.data.isAuthenticated;
+        
+        // ****************************************************************************************
+// BROUILLON POUR CRYPTAGE MDP
+// ****************************************************************************************
+          
     const [inputStates, setInputStates] = useState({
         pseudo: '',
         password: '',
