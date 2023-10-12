@@ -55,6 +55,11 @@ const Administration = ()=> {
                         <button id="btnAccueil" className="updateBtn">Valider</button>
                         </Link>
 
+                        <p className="accueilP">Gestion des restaurants</p>
+                        <Link to="/restaurants">
+                        <button id="btnAccueil" className="updateBtn">Valider</button>
+                        </Link>
+
                     </div>
                 </div>
             </div>

@@ -7,6 +7,9 @@ import Validation from "./pages/Validation";
 import Accueil from "./pages/Accueil";
 import GestionDuConcours from "./pages/GestionDuConcours";
 import GestionDesAvis from "./pages/GestionDesAvis";
+import GestionRestaurants from "./pages/GestionRestaurants";
+import AjoutRestaurant from "./pages/AjoutRestaurant";
+import ModifRestaurant from "./pages/ModifRestaurant";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/avis" element={<GestionDesAvis />} />
           <Route path="/ajout" element={<Ajout />} />
           <Route path="/modif/:id" element={<Modif />} />
+          <Route path="/restaurants" element={<GestionRestaurants />} />
+          <Route path="/ajoutRestaurant" element={<AjoutRestaurant />} />
+          <Route path="/modifRestaurant/:id" element={<ModifRestaurant />} />
         </Routes>
       </BrowserRouter>
     </div>

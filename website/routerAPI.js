@@ -311,4 +311,117 @@ router.get("/api/accueil", (req, res) => {
 
 // /******************  /API : Categories *******************/
 
+/**
+ * API : Restaurants
+ * Recuperation de tous les restaurants
+ */
+router.get("/api/restaurants", (req, res) => {
+  const q =
+    "SELECT r.ID, r.NAME, r.ADRESSE, r.CP, r.VILLE, r.PHONE, r.IMAGE " +
+    "FROM RESTAURANTS AS r " +
+    "ORDER BY NAME ASC";
+  query(q, [], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json(data);
+  });
+});
+
+/**
+ * API : Restaurants
+ * Insertion d'un Restaurant item
+ */
+
+router.post("/api/restaurants", (req, res) => {
+  // Assurez-vous d'avoir les données requises du corps de la requête
+  const { id, name, adresse, cp, ville, phone, image } = req.body;
+
+  // Effectuez une requête SQL pour insérer un nouveau restaurant dans la base de données
+  const q =
+    "INSERT INTO RESTAURANTS (ID, NAME, ADRESSE, CP, VILLE, IMAGE, PHONE) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  const values = [id, name, adresse, cp, ville, phone, image];
+
+  query(q, values, (error, data) => {
+    if (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Erreur lors de l'insertion du restaurant" });
+    } else {
+      res.status(201).json({ message: "Restaurant inséré avec succès" });
+    }
+  });
+});
+
+/**
+ * API : Restaurants
+ * Recuperation d'un restaurant pour modification
+ */
+router.get("/api/restaurants/:id", (req, res) => {
+  const id = req.params.id;
+  const q =
+    "SELECT r.id, r.name, r.adresse, r.cp, r.ville, r.image, r.phone as 'restaurants' " +
+    "FROM RESTAURANTS as r ";
+
+  query(q, [id], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    // query sur un seul élément, on renvoie le premier élément du tableau
+    if (data.length === 0) {
+      res.json({});
+    } else {
+      res.json(data[0]);
+    }
+  });
+});
+
+/**
+ * API : Restaurants
+ * Suppression d'un restaurant item
+ */
+router.delete("/api/restaurants/:id", (req, res) => {
+  const id = req.params.id;
+  const q = "DELETE FROM RESTAURANTS WHERE id = ?";
+  query(q, [id], (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json("Element supprimé avec succès");
+  });
+});
+
+/**
+ * API : Menus
+ * Modification d'un menu item
+ */
+router.put("/api/modif/:id", (req, res) => {
+  console.log(req.body);
+  const id = req.params.id;
+  const categories_id = req.body.categories_id;
+  const name = req.body.name;
+  const price = req.body.price;
+
+  const q =
+    "UPDATE MENU_ITEMS SET name= ?, price= ?, categories_id = ? WHERE id = ?";
+  const values = [name, price, categories_id, id];
+  query(q, values, (error, data) => {
+    if (error) {
+      console.log(error);
+      res.json(error);
+      return;
+    }
+    res.json(data);
+  });
+});
+
+// /******************  /API : Categories *******************/
+
 export default router;
