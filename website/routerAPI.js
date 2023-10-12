@@ -363,8 +363,9 @@ router.post("/api/restaurants", (req, res) => {
 router.get("/api/restaurants/:id", (req, res) => {
   const id = req.params.id;
   const q =
-    "SELECT r.id, r.name, r.adresse, r.cp, r.ville, r.image, r.phone as 'restaurants' " +
-    "FROM RESTAURANTS as r ";
+    "SELECT r.id, r.name, r.adresse, r.cp, r.ville, r.image, r.phone " +
+    "FROM RESTAURANTS as r " +
+    "WHERE r.id = ?";
 
   query(q, [id], (error, data) => {
     if (error) {
