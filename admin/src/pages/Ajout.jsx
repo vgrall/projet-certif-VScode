@@ -53,7 +53,7 @@ const Ajout = () => {
             const url = apiServer + "/api/menus";
             console.log("post menu item ", url);
             await axios.post(url, item);
-            navigate("/")
+            navigate("/carte")
         }catch(err){
             console.log(err);
             setError(true)

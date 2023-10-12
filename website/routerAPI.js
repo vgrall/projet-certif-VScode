@@ -383,7 +383,7 @@ router.get("/api/restaurants/:id", (req, res) => {
 
 /**
  * API : Restaurants
- * Suppression d'un restaurant item
+ * Suppression d'un restaurant
  */
 router.delete("/api/restaurants/:id", (req, res) => {
   const id = req.params.id;
@@ -400,18 +400,21 @@ router.delete("/api/restaurants/:id", (req, res) => {
 
 /**
  * API : Menus
- * Modification d'un menu item
+ * Modification d'un restaurant
  */
-router.put("/api/modif/:id", (req, res) => {
+router.put("/api/modifRestaurant/:id", (req, res) => {
   console.log(req.body);
   const id = req.params.id;
-  const categories_id = req.body.categories_id;
   const name = req.body.name;
-  const price = req.body.price;
+  const adresse = req.body.adresse;
+  const cp = req.body.cp;
+  const ville = req.body.ville;
+  const phone = req.body.phone;
+  const image = req.body.image;
 
   const q =
-    "UPDATE MENU_ITEMS SET name= ?, price= ?, categories_id = ? WHERE id = ?";
-  const values = [name, price, categories_id, id];
+    "UPDATE RESTAURANTS SET name= ?, adresse= ?, cp = ?, ville = ?, phone = ?, image = ? WHERE id = ?";
+  const values = [name, adresse, cp, ville, phone, image, id];
   query(q, values, (error, data) => {
     if (error) {
       console.log(error);

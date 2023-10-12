@@ -76,7 +76,7 @@ const Modif = () => {
                 const url = `${apiServer}/api/modif/${idParam}`;
                 console.log("put menu item ", url);            
                 await axios.put(url, item);
-                navigate("/")
+                navigate("/carte")
             }catch(err){
                 console.log(err);
                 setError(true);

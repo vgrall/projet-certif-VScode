@@ -21,6 +21,7 @@ h1 {
 
 .mainForm {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: clamp(25px, 2vw, 50px);
