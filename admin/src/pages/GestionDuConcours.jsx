@@ -48,6 +48,9 @@ const GestionDuConcours = ()=> {
         <div className="bodyList">
             <h1>LISTES DES MAILS PARTICIPANTS</h1>
 
+            <div className="buttons">
+            <button className="addButton"><Link to="/accueil" id="addBtn">RETOUR HOME</Link></button> 
+            </div>
 
             <div className="listMenu">
                 {concours.map(concours => (

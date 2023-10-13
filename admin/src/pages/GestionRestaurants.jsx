@@ -48,9 +48,14 @@ const GestionRestaurants = () => {const [restaurants, setRestaurants] = useState
         <div className="bodyList">
             <h1>LISTES DES RESTAURANTS</h1>
 
-            <div className="buttons">
-            <button className="addButton"><Link to="/ajoutRestaurant" id="addBtn">AJOUT D'UN RESTAURANT</Link></button> 
-            </div>
+            <div className="addBtnBackBtn">
+                <div className="buttons">
+                <button className="addButton"><Link to="/ajoutRestaurant" id="addBtn">AJOUT D'UN RESTAURANT</Link></button> 
+                </div>
+                <div className="buttons">
+                <button className="addButton"><Link to="/accueil" id="addBtn">RETOUR HOME</Link></button> 
+                </div>
+                </div>
 
             <div className="listMenu">
                 {restaurants.map(restaurant => (

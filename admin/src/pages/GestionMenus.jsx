@@ -47,10 +47,17 @@ const GestionMenus = ()=> {
        
         <div className="bodyList">
             <h1>LISTES DES PRODUITS</h1>
-
+            
+            <div className="addBtnBackBtn">
             <div className="buttons">
             <button className="addButton"><Link to="/ajout" id="addBtn">AJOUT AU MENU</Link></button> 
             </div>
+
+            <div className="buttons">
+            <button className="addButton"><Link to="/accueil" id="addBtn">RETOUR HOME</Link></button> 
+            </div>
+            </div>
+
 
             <div className="listMenu">
                 {menus.map(menu => (

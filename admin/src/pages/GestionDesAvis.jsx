@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {format} from "date-fns";
+import { Link } from "react-router-dom";
 
 const GestionDesAvis = ()=> {
     const [avis, setAvis] = useState([]);
@@ -50,6 +51,10 @@ const GestionDesAvis = ()=> {
         <div className="bodyList">
             <h1>LISTES DES AVIS CLIENTS</h1>
 
+            <div className="buttons">
+            <button className="addButton"><Link to="/accueil" id="addBtn">RETOUR HOME</Link></button> 
+            </div>
+            
 
             <div className="listMenu">
                 {avis.map(avis => (

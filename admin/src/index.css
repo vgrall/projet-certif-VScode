@@ -18,6 +18,20 @@ h1 {
 }
 
 
+.grid-container {
+  display: flex;
+
+
+}
+
+.grid-item {
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+
+}
+
 
 .mainForm {
   display: flex;
@@ -73,6 +87,7 @@ a {
   background-color: #3B3939;
   box-shadow: 10px 3px 4px #232222;
   color: #F1BB46;
+  margin-right: 30px;
 }
 
 #addBtn {
@@ -84,10 +99,14 @@ a {
   font-weight: 600;
   padding: clamp(10px, 2vw, 20px);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-
-
 }
+
+.addBtnBackBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .buttons {
   display: flex;
@@ -205,7 +224,8 @@ li {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  margin-right: 85px;
 
 }
 
@@ -233,5 +253,20 @@ li {
   .containerChoix {
     flex-direction: row;
 
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Deux colonnes égales */
+    grid-gap: 20px;
+    /* Espacement entre les éléments */
+  }
+
+  .grid-item {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 }

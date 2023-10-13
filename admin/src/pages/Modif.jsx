@@ -114,7 +114,7 @@ const Modif = () => {
             <div className="buttons">
             <button id="updateBtn" onClick={handleClick}>MODIFIER</button>
             {error && "Something went wrong!"}
-            <button id="backBtn" ><Link to="/">RETOUR LISTE</Link></button>
+            <button id="backBtn" ><Link to="/carte">RETOUR LISTE</Link></button>
             </div>
 
         </div>
