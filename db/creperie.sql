@@ -234,7 +234,7 @@ VALUES (
         'Plage de Postolonnec',
         29160,
         'CROZON',
-        '/images/crozon.png',
+        '/images/crozonbis.jpeg',
         '02 98 27 10 28'
 
 );
@@ -255,7 +255,7 @@ VALUES (
         '11 place Notre ',
         56260,
         'LARMOR-PLAGE',
-        '/images/larmor.png',
+        '/images/larmorbis.jpeg',
         '02 97 84 26 26'
 
 );
@@ -276,7 +276,7 @@ VALUES (
         '26 quai des Terre-Neuvas - Dahouët',
         22370,
         'PLENEUF VAL-ANDRÉ',
-        '/images/dahouet.png',
+        '/images/dahouetbis.jpeg',
         '02 96 63 13 00'
     );
 
@@ -296,7 +296,7 @@ VALUES (
         '35 avenue de Pen Guen',
         22380,
         'SAINT-CAST-LE-GUILDO',
-        '/images/stcast.png',
+        '/images/stcastbis.jpeg',
         '02 96 41 80 18'
     );
 
