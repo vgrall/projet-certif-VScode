@@ -31,6 +31,9 @@ const Ajout = () => {
                   setOptions(options);
                   setSelectedCategory(options[0].value); // selectionner la premiere categorie par defaut
             }catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
 

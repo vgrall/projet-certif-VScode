@@ -1,12 +1,74 @@
 import query from "./database.js";
 import express from "express";
+import cookie from "cookie";
+import { v4 as uuidv4 } from "uuid";
 
 const router = express.Router();
 
-// redirection vers la page d'accueil
-router.get("/api", (req, res) => {
-  res.redirect("/");
+// ******************  API : COOKIE POUR VALIDATION DU LOG EN REACT *******************/
+// Route de connexion
+// router.post("/login", (req, res) => {
+//   if (authSucceeded) {
+//     // Définissez un cookie nommé 'token' avec une valeur unique ou un identifiant d'utilisateur
+//     const token = uuid.v4();
+//     res.setHeader(
+//       "Set-Cookie",
+//       cookie.serialize("token", token, {
+//         httpOnly: true,
+//         maxAge: 60 * 60 * 24, // Durée de validité du cookie en secondes (1 jour dans cet exemple)
+//       })
+//     );
+
+//     res.redirect("/accueil"); // Rediriger vers la page d'accueil
+//   } else {
+//     res.status(401).json({ message: "Identifiants incorrects" });
+//   }
+// });
+
+// ******************  API : FIN COOKIE POUR VALIDATION DU LOG EN REACT *******************/
+
+// ******************  API : MIDDLEWARE AUTHENTIFICATION *******************/
+
+// Middleware pour vérifier si l'utilisateur est connecté
+const checkAuthentification = (req, res, next) => {
+  if (!req.session.isLogged) {
+    res.status(403).json({ message: "Accès non autorisé" });
+  } else {
+    next(); // Passer à la prochaine étape de la chaîne de middleware
+  }
+};
+
+router.post("/login", (req, res) => {
+  const pseudo = req.body.pseudo;
+  const password = req.body.password;
+
+  const q = "SELECT * FROM USERS WHERE pseudo = ?";
+  query(q, [pseudo], (error, data) => {
+    if (error) {
+      console.log(`Erreur lors de l'exécution de la requête : ${error}`);
+      res.status(500).json({ message: "Erreur serveur" });
+      return;
+    }
+
+    if (data.length === 0) {
+      res.status(404).json({ message: "Identifiants non retrouvés" });
+      return;
+    }
+
+    const user = data[0];
+
+    bcrypt.compare(password, user.password, (err, result) => {
+      if (result) {
+        req.session.isLogged = true; // Authentification réussie
+        res.json({ message: "Authentification ok" });
+      } else {
+        res.status(404).json({ message: "Identifiants incorrects" });
+      }
+    });
+  });
 });
+
+// ******************  API : FIN MIDDLEWARE AUTHENTIFICATION *******************/
 
 // /******************  /API : Menu Items *******************/
 
@@ -14,7 +76,7 @@ router.get("/api", (req, res) => {
  * API : Menus
  * Recuperation de tous les menus
  */
-router.get("/api/menus", (req, res) => {
+router.get("/api/menus", checkAuthentification, (req, res) => {
   const q =
     "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id " +
     "FROM MENU_ITEMS as m , CATEGORIES as c WHERE c.ID = m.CATEGORIES_ID " +
@@ -33,7 +95,7 @@ router.get("/api/menus", (req, res) => {
  * API : Menus
  * Insertion d'un menu item
  */
-router.post("/api/menus", (req, res) => {
+router.post("/api/menus", checkAuthentification, (req, res) => {
   console.log("POST /api/menus", req.body);
   const categories_id = req.body.categories_id;
   const name = req.body.name;
@@ -59,7 +121,7 @@ router.post("/api/menus", (req, res) => {
  * API : Menus
  * Recuperation d'un menu item
  */
-router.get("/api/menus/:id", (req, res) => {
+router.get("/api/menus/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q =
     "SELECT m.id, m.name, m.price, m.name, c.NAME as 'category', m.CATEGORIES_ID as categories_id " +
@@ -85,7 +147,7 @@ router.get("/api/menus/:id", (req, res) => {
  * API : Menus
  * Suppression d'un menu item
  */
-router.delete("/api/menus/:id", (req, res) => {
+router.delete("/api/menus/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q = "DELETE FROM MENU_ITEMS WHERE id = ?";
   query(q, [id], (error, data) => {
@@ -102,7 +164,7 @@ router.delete("/api/menus/:id", (req, res) => {
  * API : Menus
  * Modification d'un menu item
  */
-router.put("/api/modif/:id", (req, res) => {
+router.put("/api/modif/:id", checkAuthentification, (req, res) => {
   console.log(req.body);
   const id = req.params.id;
   const categories_id = req.body.categories_id;
@@ -130,7 +192,7 @@ router.put("/api/modif/:id", (req, res) => {
  * API : Categories
  * Recuperation de toutes les categories
  */
-router.get("/api/categories", (req, res) => {
+router.get("/api/categories", checkAuthentification, (req, res) => {
   const q = "SELECT * FROM CATEGORIES ORDER BY ID ASC";
   query(q, [], (error, data) => {
     if (error) {
@@ -146,7 +208,7 @@ router.get("/api/categories", (req, res) => {
  * API : Concours
  * Recuperation de tous les mails du concours mensuel
  */
-router.get("/api/concours", (req, res) => {
+router.get("/api/concours", checkAuthentification, (req, res) => {
   const q = "SELECT id, mail FROM CONCOURS";
   query(q, [], (error, data) => {
     if (error) {
@@ -162,7 +224,7 @@ router.get("/api/concours", (req, res) => {
  * API : Concours
  * Suppression d'un mail participant
  */
-router.delete("/api/concours/:id", (req, res) => {
+router.delete("/api/concours/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q = "DELETE FROM CONCOURS WHERE id = ?";
   query(q, [id], (error, data) => {
@@ -179,7 +241,7 @@ router.delete("/api/concours/:id", (req, res) => {
  * API : des Avis
  * Recuperation de tous les avis du formulaire
  */
-router.get("/api/avis", (req, res) => {
+router.get("/api/avis", checkAuthentification, (req, res) => {
   const q =
     "SELECT id, photo, comment, firstname, lastname, email, date_creation, satisfaction, consent, restaurants_id FROM AVIS_CLIENTS";
   query(q, [], (error, data) => {
@@ -196,7 +258,7 @@ router.get("/api/avis", (req, res) => {
  * API : Concours
  * Suppression d'un mail participant
  */
-router.delete("/api/avis/:id", (req, res) => {
+router.delete("/api/avis/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q = "DELETE FROM AVIS_CLIENTS WHERE id = ?";
   query(q, [id], (error, data) => {
@@ -209,113 +271,13 @@ router.delete("/api/avis/:id", (req, res) => {
   });
 });
 
-/**
- * API : Page d'administration
- * afficher la page lorsque l'utilisateur est vérifié (voir middleware)
- */
-
-router.get("/api/accueil", (req, res) => {
-  const q = "SELECT a.id, a.pseudo, a.password " + "FROM USERS as a";
-  query(q, [], (error, data) => {
-    if (error) {
-      console.log(error);
-      res.json(error);
-      return;
-    }
-
-    res.json(data);
-  });
-});
-
-// ****************************************************************************************
-// BROUILLON POUR CRYPTAGE MDP
-// ****************************************************************************************
-
-/**
- * API : Vérification d'utilisateur
- * Récupération des utilisateurs pour vérification (à des fins de démonstration uniquement)
- */
-// router.get("/api/accueil", (req, res) => {
-//   const q = "SELECT a.id, a.pseudo, a.password FROM USERS as a";
-//   query(q, [], (error, data) => {
-//     if (error) {
-//       console.log(error);
-//       res.json(error);
-//       return;
-//     }
-//     res.json(data);
-//   });
-// });
-
-/**
- * API : Hachage de mot de passe (à des fins de démonstration uniquement, en pratique, le hachage doit être effectué côté serveur)
- */
-// router.post("/api/hashPassword", (req, res) => {
-//   const plainTextPassword = req.body.password;
-
-//   // Hash du mot de passe côté serveur (en pratique, cela doit être effectué côté serveur)
-//   const saltRounds = 10; // Nombre de tours de hachage
-//   bcrypt.hash(plainTextPassword, saltRounds, (error, hashedPassword) => {
-//     if (error) {
-//       console.log(error);
-//       res.json(error);
-//       return;
-//     }
-//     res.json({ hashedPassword });
-//   });
-// });
-
-/**
- * API : Authentification de l'utilisateur
- * Vérification du pseudo et du mot de passe haché
- */
-// router.post("/api/authenticate", (req, res) => {
-//   const { pseudo, hashedPassword } = req.body;
-
-//   // Récupérez les utilisateurs à partir de la base de données (à des fins de démonstration uniquement)
-//   const q =
-//     "SELECT a.id, a.pseudo, a.password FROM USERS as a WHERE a.pseudo = ?";
-//   query(q, [pseudo], (error, data) => {
-//     if (error) {
-//       console.log(error);
-//       res.json(error);
-//       return;
-//     }
-
-//     if (data.length === 0) {
-//       res.json({ isAuthenticated: false });
-//       return;
-//     }
-
-//     // Comparez le mot de passe haché avec le mot de passe stocké en base de données
-//     const user = data[0];
-//     bcrypt.compare(hashedPassword, user.password, (compareError, result) => {
-//       if (compareError) {
-//         console.log(compareError);
-//         res.json(compareError);
-//         return;
-//       }
-
-//       if (result) {
-//         res.json({ isAuthenticated: true });
-//       } else {
-//         res.json({ isAuthenticated: false });
-//       }
-//     });
-//   });
-// });
-
-// ****************************************************************************************
-// BROUILLON POUR CRYPTAGE MDP
-// ****************************************************************************************
-
 // /******************  /API : Categories *******************/
 
 /**
  * API : Restaurants
  * Recuperation de tous les restaurants
  */
-router.get("/api/restaurants", (req, res) => {
+router.get("/api/restaurants", checkAuthentification, (req, res) => {
   const q =
     "SELECT r.ID, r.NAME, r.ADRESSE, r.CP, r.VILLE, r.PHONE, r.IMAGE " +
     "FROM RESTAURANTS AS r " +
@@ -335,8 +297,7 @@ router.get("/api/restaurants", (req, res) => {
  * Insertion d'un Restaurant item
  */
 
-router.post("/api/restaurants", (req, res) => {
-  // Assurez-vous d'avoir les données requises du corps de la requête
+router.post("/api/restaurants", checkAuthentification, (req, res) => {
   const { id, name, adresse, cp, ville, phone, image } = req.body;
 
   // Effectuez une requête SQL pour insérer un nouveau restaurant dans la base de données
@@ -360,7 +321,7 @@ router.post("/api/restaurants", (req, res) => {
  * API : Restaurants
  * Recuperation d'un restaurant pour modification
  */
-router.get("/api/restaurants/:id", (req, res) => {
+router.get("/api/restaurants/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q =
     "SELECT r.id, r.name, r.adresse, r.cp, r.ville, r.image, r.phone " +
@@ -386,7 +347,7 @@ router.get("/api/restaurants/:id", (req, res) => {
  * API : Restaurants
  * Suppression d'un restaurant
  */
-router.delete("/api/restaurants/:id", (req, res) => {
+router.delete("/api/restaurants/:id", checkAuthentification, (req, res) => {
   const id = req.params.id;
   const q = "DELETE FROM RESTAURANTS WHERE id = ?";
   query(q, [id], (error, data) => {
@@ -403,7 +364,7 @@ router.delete("/api/restaurants/:id", (req, res) => {
  * API : Menus
  * Modification d'un restaurant
  */
-router.put("/api/modifRestaurant/:id", (req, res) => {
+router.put("/api/modifRestaurant/:id", checkAuthentification, (req, res) => {
   console.log(req.body);
   const id = req.params.id;
   const name = req.body.name;

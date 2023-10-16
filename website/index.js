@@ -20,6 +20,10 @@ app.use(
   })
 );
 
+//pour récupérer les informations du formulaire
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs"); // Définit le moteur de modèle EJS
 app.set("views", "./views"); // Définit le répertoire des vues
 

@@ -1,33 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Administration = ()=> {
-    const[administration, setAdministration] = useState([]);
-    const apiServer = "http://"+ window.location.hostname +":3000";
-
-    useEffect(() => {
-
-        const fecthAllAdministration = async () => {
-
-            try{
-                const url = apiServer+ `/api/accueil`;
-                console.log("get administration items ", url);
-                const res = await axios.get(url);
-                setAdministration(res.data);
-                console.log(res);
-            }catch(err){
-                console.log(err);
-            }
-        };
-
-        fecthAllAdministration();
-
-    }, [apiServer]);
-
-  
-
     return (
         <div>
         <div className="banner">
@@ -37,33 +11,41 @@ const Administration = ()=> {
         <div className="bodyList">
           <h1>PAGE ADMINISTRATION</h1>
       
-          <div className="containerChoix grid-container">
-            <div className="grid-item">
+          <div className="containerChoix">
+            <div className="grid-item1">
               <p className="accueilP">MENUS</p>
-              <Link to="/carte">
+              <div className="lienBtn">
+              <Link  to="/carte">
                 <button id="btnAccueil" className="updateBtn">Valider</button>
               </Link>
+              </div>
             </div>
       
-            <div className="grid-item">
+            <div className="grid-item2">
               <p className="accueilP">CONCOURS</p>
-              <Link to="/concours">
+              <div className="lienBtn">
+              <Link  to="/concours">
                 <button id="btnAccueil" className="updateBtn">Valider</button>
               </Link>
+              </div>
             </div>
       
-            <div className="grid-item">
+            <div className="grid-item3">
               <p className="accueilP">AVIS</p>
+              <div className="lienBtn">
               <Link to="/avis">
                 <button id="btnAccueil" className="updateBtn">Valider</button>
               </Link>
+              </div>
             </div>
       
-            <div className="grid-item">
+            <div className="grid-item4">
               <p className="accueilP">RESTAURANTS</p>
+              <div className="lienBtn">
               <Link to="/restaurants">
                 <button id="btnAccueil" className="updateBtn">Valider</button>
               </Link>
+              </div>
             </div>
           </div>
         </div>

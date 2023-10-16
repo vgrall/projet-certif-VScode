@@ -11,27 +11,46 @@ h1 {
 
 }
 
-.item,
 .accueilP {
   font-size: clamp(15px, 2vw, 25px);
-  margin: 30px 20px;
-}
-
-
-.grid-container {
+  margin: 25px 0px 10px;
   display: flex;
-
-
+  justify-content: center;
 }
 
-.grid-item {
-  text-align: center;
+.containerChoix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* gap: 2em 2em; */
+  /* grid-auto-flow: row; */
+  grid-template-areas:
+    "grid-item1 grid-item2"
+    "grid-item3 grid-item4";
+}
+
+.grid-item1 {
+  grid-area: grid-item1;
+}
+
+.grid-item2 {
+  grid-area: grid-item2;
+}
+
+.grid-item3 {
+  grid-area: grid-item3;
+}
+
+.grid-item4 {
+  grid-area: grid-item4;
+}
+
+
+
+.lienBtn {
   display: flex;
-  align-items: center;
-
-
+  justify-content: center;
 }
-
 
 .mainForm {
   display: flex;
@@ -48,7 +67,6 @@ a {
 }
 
 .App {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,9 +152,7 @@ a {
   color: #F1BB46;
 }
 
-#btnAccueil {
-  margin-right: 50px;
-}
+
 
 .updateBtn {
   background-color: #3B3939;
@@ -220,14 +236,7 @@ li {
   color: red;
 }
 
-.containerChoix {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-right: 85px;
 
-}
 
 
 
@@ -247,26 +256,4 @@ li {
 
 .mailParticipe {
   font-size: clamp(15px, 2vw, 20px);
-}
-
-@media (min-width: 900px) {
-  .containerChoix {
-    flex-direction: row;
-
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Deux colonnes égales */
-    grid-gap: 20px;
-    /* Espacement entre les éléments */
-  }
-
-  .grid-item {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
 }

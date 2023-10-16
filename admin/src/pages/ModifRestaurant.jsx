@@ -35,7 +35,10 @@ const ModifRestaurant = () => {
                 const { id, name, adresse, cp, ville, phone, image } = res.data;
                 setRestaurant({ id, name, adresse, cp, ville, phone, image });
                 setSelectedCategory(res.data.categories_id);
-            } catch (err) {
+            }catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
         };
@@ -49,7 +52,10 @@ const ModifRestaurant = () => {
                     "label": d.NAME
                 }));
                 setOptions(options);
-            } catch (err) {
+            } catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
         };

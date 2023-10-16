@@ -16,6 +16,9 @@ const GestionRestaurants = () => {const [restaurants, setRestaurants] = useState
                 setRestaurants(res.data);
                 console.log(res);
             }catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
 

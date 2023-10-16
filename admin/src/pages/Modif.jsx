@@ -40,6 +40,9 @@ const Modif = () => {
                 setSelectedCategory(res.data.categories_id);
 
             }catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
         }
@@ -57,6 +60,9 @@ const Modif = () => {
                   }))
                   setOptions(options);
             }catch(err){
+                if (err.response.status === 403) {
+                    window.location.href = "/login";
+                }
                 console.log(err);
             }
         };

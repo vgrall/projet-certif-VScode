@@ -31,8 +31,11 @@ const AjoutRestaurant = () => {
         setOptions(options);
         setSelectedCategory(options[0].value); // selectionner la premiere categorie par defaut
       }catch(err){
+        if (err.response.status === 403) {
+            window.location.href = "/login";
+        }
         console.log(err);
-      }
+    }
     };
 
     fetchRestaurants();
@@ -54,8 +57,7 @@ const AjoutRestaurant = () => {
       navigate("/restaurants");
     }catch(err){
       console.log(err);
-      setError(true);
-    }
+  }
   };
 
   return (

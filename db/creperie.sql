@@ -1583,3 +1583,27 @@ INSERT INTO
 VALUES (27, 'STCAST');
 
 COMMIT;
+
+-- -----------------------------------------------------
+
+-- Data for table `mydb`.`USERS`
+
+-- -----------------------------------------------------
+
+START TRANSACTION;
+
+USE `mydb`;
+
+INSERT INTO
+    `mydb`.`USERS` (
+        `ID`,
+        `PSEUDO`,
+        `PASSWORD`,
+        `ROLE`
+    )
+VALUES (
+        1,
+        'Rozenn',
+        'ADMINROZENN',
+        'admin'
+    );
