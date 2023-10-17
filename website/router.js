@@ -31,15 +31,15 @@ router.use((req, res, next) => {
 router.get("/", homeControler);
 router.get("/mentions_legales", mentions_legales);
 
-router.get("/login", loginForm);
-router.post("/login", login);
-router.get("/logout", logout);
-router.get("/user/add", checkAuthentification, addUser);
-router.post("/user/add", checkAuthentification, addUserSubmit);
+// router.get("/login", loginForm);
+// router.post("/login", login);
+// router.get("/logout", logout);
+// router.get("/user/add", checkAuthentification, addUser);
+// router.post("/user/add", checkAuthentification, addUserSubmit);
 
 // hardcodé pour le moment
 router.get("/admin", checkAuthentification, (req, res) => {
-  res.redirect("http://localhost:3001/");
+  res.redirect("http://localhost:3001/login");
 });
 router.get("/restaurants", restaurantControler);
 router.get("/:id/carte", carteControler);

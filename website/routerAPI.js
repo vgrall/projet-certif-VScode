@@ -1,31 +1,10 @@
 import query from "./database.js";
 import express from "express";
-import cookie from "cookie";
+import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+import xss from "xss";
 
 const router = express.Router();
-
-// ******************  API : COOKIE POUR VALIDATION DU LOG EN REACT *******************/
-// Route de connexion
-// router.post("/login", (req, res) => {
-//   if (authSucceeded) {
-//     // Définissez un cookie nommé 'token' avec une valeur unique ou un identifiant d'utilisateur
-//     const token = uuid.v4();
-//     res.setHeader(
-//       "Set-Cookie",
-//       cookie.serialize("token", token, {
-//         httpOnly: true,
-//         maxAge: 60 * 60 * 24, // Durée de validité du cookie en secondes (1 jour dans cet exemple)
-//       })
-//     );
-
-//     res.redirect("/accueil"); // Rediriger vers la page d'accueil
-//   } else {
-//     res.status(401).json({ message: "Identifiants incorrects" });
-//   }
-// });
-
-// ******************  API : FIN COOKIE POUR VALIDATION DU LOG EN REACT *******************/
 
 // ******************  API : MIDDLEWARE AUTHENTIFICATION *******************/
 
@@ -39,8 +18,8 @@ const checkAuthentification = (req, res, next) => {
 };
 
 router.post("/login", (req, res) => {
-  const pseudo = req.body.pseudo;
-  const password = req.body.password;
+  const pseudo = xss(req.body.pseudo);
+  const password = xss(req.body.password);
 
   const q = "SELECT * FROM USERS WHERE pseudo = ?";
   query(q, [pseudo], (error, data) => {
@@ -57,9 +36,12 @@ router.post("/login", (req, res) => {
 
     const user = data[0];
 
-    bcrypt.compare(password, user.password, (err, result) => {
+    bcrypt.compare(password, user.PASSWORD, (err, result) => {
       if (result) {
         req.session.isLogged = true; // Authentification réussie
+
+        res.setHeader("set-cookie", "isLogged = true"); // Authentification réussie
+
         res.json({ message: "Authentification ok" });
       } else {
         res.status(404).json({ message: "Identifiants incorrects" });

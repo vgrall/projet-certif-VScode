@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GestionMenus from "./pages/GestionMenus";
 import Ajout from "./pages/Ajout";
 import Modif from "./pages/Modif";
-import "./App.css";
 import Login from "./pages/Login";
 import Accueil from "./pages/Accueil";
 import GestionDuConcours from "./pages/GestionDuConcours";
@@ -11,27 +11,31 @@ import GestionRestaurants from "./pages/GestionRestaurants";
 import AjoutRestaurant from "./pages/AjoutRestaurant";
 import ModifRestaurant from "./pages/ModifRestaurant";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
-
-// function App() {
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-//   useEffect(() => {
-//     // Vérifiez si le cookie 'token' est présent
-//     const token = Cookies.get("token");
-//     if (token) {
-//       setIsAuthenticated(true);
-//     } else {
-//       setIsAuthenticated(false);
-//     }
-//   }, []);
+import axios from "axios";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    // Vérifiez si le cookie 'token' est présent
+    const token = Cookies.get("token");
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login setIsAuthenticated={setIsAuthenticated} />}
+          />
+
           <Route path="/accueil" element={<Accueil />} />
           <Route path="/carte" element={<GestionMenus />} />
           <Route path="/concours" element={<GestionDuConcours />} />
