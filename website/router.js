@@ -13,34 +13,8 @@ import logout from "./controlers/logout.js";
 import { addUser, addUserSubmit } from "./controlers/addUser.js";
 import mentions_legales from "./controlers/mentions_legales.js";
 
-//  Middleware pour vérifier si l'utilisateur est connecté
-const checkAuthentification = (req, res, next) => {
-  if (!req.session.isLogged) {
-    res.redirect("/login");
-    return;
-  }
-  next();
-};
-
-// passer l'information de connexion à toutes les vues
-router.use((req, res, next) => {
-  res.locals.isLogged = req.session.isLogged;
-  next();
-});
-
 router.get("/", homeControler);
 router.get("/mentions_legales", mentions_legales);
-
-// router.get("/login", loginForm);
-// router.post("/login", login);
-// router.get("/logout", logout);
-// router.get("/user/add", checkAuthentification, addUser);
-// router.post("/user/add", checkAuthentification, addUserSubmit);
-
-// hardcodé pour le moment
-router.get("/admin", checkAuthentification, (req, res) => {
-  res.redirect("http://localhost:3001/login");
-});
 router.get("/restaurants", restaurantControler);
 router.get("/:id/carte", carteControler);
 
