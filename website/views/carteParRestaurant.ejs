@@ -22,7 +22,7 @@
             <!-- Vérifiez si la catégorie n'a pas déjà été affichée -->
             <% if (!categoriesAffichees.has(produit.CATE_PRODUIT)) { %>
               
-              <li id="categoryTitle"> <%= produit.CATE_PRODUIT.toUpperCase() %></li>
+              <li class="categoryTitle"> <%= produit.CATE_PRODUIT.toUpperCase() %></li>
               
               <% categoriesAffichees.add(produit.CATE_PRODUIT); %>
 

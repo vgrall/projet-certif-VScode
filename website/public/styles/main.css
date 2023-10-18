@@ -592,7 +592,7 @@ li {
 /* **************************************************************
 PAGE RESTAURANT 
 ************************************************************** */
-#lien-carte-resto {
+.lien-carte-resto {
     text-decoration: none;
     color: white;
 }
@@ -610,7 +610,7 @@ PAGE RESTAURANT
     margin: 0 4rem;
 }
 
-#categoryTitle {
+.categoryTitle {
     font-size: 2.5rem;
     color: white;
     background: #3B3939;
@@ -1207,7 +1207,7 @@ POP-UP CONCOURS
         padding-right: 200px;
     }
 
-    #categoryTitle {
+    .categoryTitle {
         margin-left: 250px;
         margin-right: 200px;
     }

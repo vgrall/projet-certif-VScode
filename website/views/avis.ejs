@@ -19,11 +19,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="firstName">* Prénom:</label>
+                        <label for="firstname">* Prénom:</label>
                         <input type="text" id="firstname" name="firstname" required>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">* Nom:</label>
+                        <label for="lastname">* Nom:</label>
                         <input type="text" id="lastname" name="lastname" required>
                     </div>
 
@@ -49,7 +49,7 @@
                         <label class="labelnumero" for="satisfaction1">1</label>
                     </div>
                     <div class="form-group">
-                        <label for="restaurant"> * Restaurant:</label>
+                        <label for="restaurants_id"> * Restaurant:</label>
                         <select name="restaurants_id" id="restaurants_id">
                             <% for(let i = 0; i < restaurants.length; i++) { %>
                             <option value="<%= restaurants[i].id %>"><%= restaurants[i].name %></option>
@@ -87,7 +87,7 @@
                     <div class="content-avis">
                         <img src="<%= avis[i].photo %>" alt="Photo de <%= avis[i].firstname %>">
                         <h2><%= avis[i].firstname.toUpperCase() %></h2>
-                        <div id="commentP">
+                        <div class="commentP">
                             <p><%= avis[i].comment %></p>
                         </div>
                         <div>
