@@ -1,7 +1,6 @@
 import query from "./database.js";
 import express from "express";
 import bcrypt from "bcrypt";
-import { v4 as uuidv4 } from "uuid";
 import xss from "xss";
 
 const router = express.Router();

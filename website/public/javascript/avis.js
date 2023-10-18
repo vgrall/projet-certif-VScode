@@ -106,20 +106,3 @@ function slideIn(e) {
 //le bouton gauche ou droit, il affichera respectivement la diapositive précédente ou suivante.
 
 // *********************************************************************************************************************
-// Fonction pour afficher la boîte de dialogue
-// function afficherPopup() {
-//   const modal = document.getElementById("successModal");
-//   const modalBackground = document.getElementById("modalBackground");
-
-//   modal.style.display = "block";
-//   modalBackground.style.display = "block";
-
-//   // Fonction pour masquer la boîte de dialogue
-//   function fermerPopup() {
-//     modal.style.display = "none";
-//     modalBackground.style.display = "none";
-//   }
-
-//   // Attacher l'événement de fermeture à l'ensemble du document
-//   modalBackground.addEventListener("click", fermerPopup);
-// }
