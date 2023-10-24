@@ -51,6 +51,42 @@ router.post("/login", (req, res) => {
 
 // ******************  API : FIN MIDDLEWARE AUTHENTIFICATION *******************/
 
+// ******************  API : AJOUT D'UN UTILISATEUR *******************/
+
+/**
+ * API : User
+ * Insertion d'un User
+ */
+
+router.post("/api/addUser", checkAuthentification, async (req, res) => {
+  const { id, pseudo, password, role } = req.body;
+
+  // Utilisez bcrypt pour hacher le mot de passe
+  const saltRounds = 10; // Le nombre de tours de hachage
+  try {
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // Effectuez une requête SQL pour insérer un nouvel utilisateur dans la base de données
+    const q =
+      "INSERT INTO USERS (ID, PSEUDO, PASSWORD, ROLE) VALUES (?, ?, ?, ?)";
+    const values = [id, pseudo, hashedPassword, role];
+
+    query(q, values, (error, data) => {
+      if (error) {
+        console.log(error);
+        res
+          .status(500)
+          .json({ message: "Erreur lors de l'insertion d'un utilisateur" });
+      } else {
+        res.status(201).json({ message: "Utilisateur inséré avec succès" });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Erreur lors du hachage du mot de passe" });
+  }
+});
+
 // /******************  /API : Menu Items *******************/
 
 /**

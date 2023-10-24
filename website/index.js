@@ -28,6 +28,7 @@ app.set("view engine", "ejs"); // Définit le moteur de modèle EJS
 app.set("views", "./views"); // Définit le répertoire des vues
 
 app.use(express.json());
+
 app.use(
   cors({
     // pour autoriser les requêtes cross-origin
