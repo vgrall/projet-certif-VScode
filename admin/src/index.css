@@ -148,10 +148,24 @@ a {
 
 #btn,
 #adminBtn,
-#btnAccueil {
+#btnAccueil,
+#addUserBtn {
   color: #F1BB46;
 }
 
+.containerAddUser {
+  display: flex;
+  justify-content: center;
+}
+
+.containerSuccesForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+}
 
 
 .updateBtn {

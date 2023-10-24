@@ -4,6 +4,7 @@ import GestionMenus from "./pages/GestionMenus";
 import Ajout from "./pages/Ajout";
 import Modif from "./pages/Modif";
 import Login from "./pages/Login";
+import AddUser from "./pages/AddUser";
 import Accueil from "./pages/Accueil";
 import GestionDuConcours from "./pages/GestionDuConcours";
 import GestionDesAvis from "./pages/GestionDesAvis";
@@ -36,6 +37,7 @@ function App() {
             element={<Login setIsAuthenticated={setIsAuthenticated} />}
           />
 
+          <Route path="/addUser" element={<AddUser />} />
           <Route path="/accueil" element={<Accueil />} />
           <Route path="/carte" element={<GestionMenus />} />
           <Route path="/concours" element={<GestionDuConcours />} />

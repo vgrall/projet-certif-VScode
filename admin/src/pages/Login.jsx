@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Pseudo from './Pseudo';
 import Password from './Password';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const Login = ({ setIsAuthenticated }) => {
   const apiServer = 'http://' + window.location.hostname + ':3000';
@@ -60,9 +61,14 @@ const Login = ({ setIsAuthenticated }) => {
           showValidation={showValidation}
         />
 
+    
         <button id="adminBtn" className="updateBtn">
           Valider
         </button>
+
+      
+ 
+
       </form>
     </div>
   );

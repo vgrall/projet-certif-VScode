@@ -10,6 +10,9 @@ const Administration = ()=> {
       
         <div className="bodyList">
           <h1>PAGE ADMINISTRATION</h1>
+          <div className="containerAddUser">
+          <button className="updateBtn"><Link id="addUserBtn" to={`/addUser`} >Créer un utilisateur</Link></button>
+          </div>
       
           <div className="containerChoix">
             <div className="grid-item1">
