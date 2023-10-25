@@ -10,7 +10,7 @@ const Modif = () => {
     const apiServer = "http://"+ window.location.hostname +":3000";
 
     const [options, setOptions] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     const [item, setItem] = useState({
         id : null,
