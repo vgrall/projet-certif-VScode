@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const AjoutRestaurant = () => {
   const [options, setOptions] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState();
   const apiServer = "http://"+ window.location.hostname +":3000";
 
   const [restaurants, setRestaurant] = useState({
@@ -29,7 +28,7 @@ const AjoutRestaurant = () => {
           "label" : d.NAME
         }));
         setOptions(options);
-        setSelectedCategory(options[0].value); // selectionner la premiere categorie par defaut
+       
       }catch(err){
         if (err.response.status === 403) {
             window.location.href = "/login";
@@ -50,7 +49,7 @@ const AjoutRestaurant = () => {
 
   const handleClick = async e => {
     e.preventDefault();
-    restaurants.categories_id = selectedCategory;
+   
     try{
       const url = apiServer + "/api/restaurants";
       await axios.post(url, restaurants);
