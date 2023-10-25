@@ -16,7 +16,7 @@ const Modif = () => {
         id : null,
         name: "",
         categories_id: "",
-        price: null
+        price: 0,
     });
 
     const [error,setError] = useState(false)
