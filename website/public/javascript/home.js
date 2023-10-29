@@ -4,10 +4,9 @@ MENU BURGER
 
 let sidenav = document.getElementById("mySidenav");
 let openBtn = document.getElementById("openBtn");
-let closeBtn = document.getElementById("closeBtn");
 
 openBtn.onclick = openNav;
-closeButton.onclick = closeNav;
+
 sidenav.onclick = clicCloseNav;
 
 /* Set the width of the side navigation to 250px */
@@ -65,7 +64,7 @@ window.addEventListener("scroll", () => {
 
   let scrollValue =
     (window.innerHeight + window.scrollY) / document.body.offsetHeight;
-  console.log(scrollValue);
+  // console.log(scrollValue);
   if (scrollValue > 0.25) {
     containerCarte.style.opacity = 1; //rend visible l'élément
     containerCarte.style.transform = "none"; //
