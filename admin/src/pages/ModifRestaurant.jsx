@@ -9,7 +9,7 @@ const ModifRestaurant = () => {
     const apiServer = "http://" + window.location.hostname + ":3000";
 
     const [options, setOptions] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState();
+    // const [selectedCategory, setSelectedCategory] = useState();
 
     const [restaurant, setRestaurant] = useState({
         id: null,
@@ -34,7 +34,7 @@ const ModifRestaurant = () => {
                 const res = await axios.get(url);
                 const { id, name, adresse, cp, ville, phone, image } = res.data;
                 setRestaurant({ id, name, adresse, cp, ville, phone, image });
-                setSelectedCategory(res.data.categories_id);
+                // setSelectedCategory(res.data.categories_id);
             }catch(err){
                 if (err.response.status === 403) {
                     window.location.href = "/login";
@@ -61,7 +61,7 @@ const ModifRestaurant = () => {
         };
 
         fetchRestaurant();
-        fetchCategories();
+        // fetchCategories();
     }, [idParam, apiServer]);
 
     const handleChange = (event) => {
@@ -73,7 +73,7 @@ const ModifRestaurant = () => {
         console.log("restaurant", restaurant);
       
         e.preventDefault();
-        restaurant.id = selectedCategory;
+        // restaurant.id = selectedCategory;
         try {
             const url = `${apiServer}/api/modifRestaurant/${idParam}`;
             console.log("Data from API:", { id: restaurant.id, name: restaurant.name, adresse: restaurant.adresse, cp: restaurant.cp, ville: restaurant.ville, phone: restaurant.phone, image: restaurant.image });
